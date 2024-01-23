@@ -16,10 +16,10 @@ This is an automated testing scripts for the Live Roulette Mobile Revamp.
 - Capture screenshots for failed scenarios in all modules and include them in the HTML report.
 
 ## Versions
-- Version 1.0: Official Version -> Generating data files and capturing screenshots.
-- Version 2.0: Maven Version -> Change the build framework from Gradle to Maven.
-- Version 2.2: Screenshot Version -> Failed scenario screenshots are attached in the HTML report.
-- Version 3.0: Component Version -> Create a component object for each element to facilitate easy identification of elements.
+- Version 1.0: Official Version -> Official Live Roulette Mobile Revamp Automation
+- Version 2.0: Maven Version -> Gradle Build Framework to Maven Build Framework.
+- Version 2.2: Screenshot Version -> Attached Screenshots to the HTML Report.
+- Version 3.0: Component Version -> Change Path to Component Object.
 
 ## Notes
 ** I have completed the initial development of the automated testing scripts for the Live Roulette Mobile Revamp. 
