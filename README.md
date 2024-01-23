@@ -12,7 +12,7 @@ This is an automated testing scripts for the Live Roulette Mobile Revamp.
 ## Features
 - Generate a txt file containing data for 'Payouts' and 'Result & Statistics'.
 - Capture screenshots of round result and updated balance for 'Payouts'.
-- Capture screenshots of updated statisctics for 'Result & Statistics'.
+- Capture screenshots of updated statistics for 'Result & Statistics'.
 - Capture screenshots for failed scenarios in all modules and include them in the HTML report.
 
 ## Versions
