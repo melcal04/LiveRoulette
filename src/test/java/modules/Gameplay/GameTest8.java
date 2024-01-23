@@ -74,7 +74,7 @@ public class GameTest8 extends Gameplay {
         EventHandler.click(DealerTable.Button.Back);
     }
 
-    public static void verifyPlaceBet(Component bettingOption, Component bettingChip) {
+    private static void verifyPlaceBet(Component bettingOption, Component bettingChip) {
         EventHandler.click(bettingOption);
         String bettingOptionName = bettingOption.getName();
         AssertHandler.assertTrue(ConditionHandler.isDisplayed(bettingChip),
