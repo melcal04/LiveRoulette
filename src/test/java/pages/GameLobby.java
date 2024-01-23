@@ -142,7 +142,7 @@ public class GameLobby {
      ***************************************************************************************************************/
 
     public static class Method {
-        public static Component getDealerTables(String dealsOrTable) {
+        public static Component getDealerTable(String dealsOrTable) {
             return new Component(
                     "Dealer Table of " + dealsOrTable,
                     "Container",

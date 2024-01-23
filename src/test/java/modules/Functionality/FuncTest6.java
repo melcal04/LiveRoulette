@@ -16,7 +16,7 @@ public class FuncTest6 {
         String tableName = GetHandler.getElementByRandom(GameLobby.Label.TableNames)
                 .getText().replace(" / ", "/");
         expectedTable = tableName.split("/")[1];
-        EventHandler.click(GameLobby.Method.getDealerTables(expectedTable), HandleCollection.WithException);
+        EventHandler.click(GameLobby.Method.getDealerTable(expectedTable), HandleCollection.WithException);
         EventHandler.click(DealerTable.Button.SkipWelcome, HandleCollection.WithException);
     }
 

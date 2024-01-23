@@ -21,7 +21,7 @@ public class GameTest4 extends Gameplay {
         String targetTable = getTableName();
 
         EventHandler.click(DealerTable.Button.Back);
-        EventHandler.click(GameLobby.Method.getDealerTables(targetTable), HandleCollection.WithException);
+        EventHandler.click(GameLobby.Method.getDealerTable(targetTable), HandleCollection.WithException);
 
         verifyDisplay(DealerTable.Label.PlaceYourBets);
         verifyDisplay(DealerTable.Label.WelcomeAndGoodLuck);
