@@ -1,6 +1,6 @@
 # Live Roulette - Mobile Revamp
 
-This is an automated testing scripts for the Live Roulette Mobile Revamp.
+This is a backup version of an automated testing script for the Live Roulette Mobile Revamp.
 
 ## Tech Stack
 - Automation Framework: Selenium
