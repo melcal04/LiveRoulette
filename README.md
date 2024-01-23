@@ -17,9 +17,9 @@ This is an automated testing scripts for the Live Roulette Mobile Revamp.
 
 ## Versions
 - Version 1.0: Official Version -> Official Live Roulette Mobile Revamp Automation
-- Version 2.0: Maven Version -> Gradle Build Framework to Maven Build Framework.
-- Version 2.2: Screenshot Version -> Attached Screenshots to the HTML Report.
-- Version 3.0: Component Version -> Change Path to Component Object.
+- Version 2.0: Maven Version -> Gradle Build Framework to Maven Build Framework
+- Version 2.2: Screenshot Version -> Attached Screenshots to the HTML Report
+- Version 3.0: Component Version -> Change Path to Component Object
 
 ## Notes
 ** I have completed the initial development of the automated testing scripts for the Live Roulette Mobile Revamp. 
