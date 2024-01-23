@@ -21,7 +21,7 @@ public class GameTest20 extends Gameplay {
 
         System.out.println();
         System.out.println("Module: GAMEPLAY");
-        System.out.println("Test Case: 15");
+        System.out.println("Test Case: 20");
         System.out.println("Actual Results: ");
 
         verifyDisplay(DealerTable.Label.FindATable);
