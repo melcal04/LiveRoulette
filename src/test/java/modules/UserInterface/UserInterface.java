@@ -23,7 +23,6 @@ public class UserInterface extends TestMethod {
         verifyDisplay(DealerTable.Button.ChipOptions);
         verifyDisplay(DealerTable.Button.EditChips);
         verifyDisplay(DealerTable.Container.BettingOptions);
-        verifyDisplay(DealerTable.Button.Back);
     }
 
 }

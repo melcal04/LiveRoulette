@@ -1,8 +1,6 @@
 package utilities.handlers;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 public class DataTypeHandler {
 
@@ -174,6 +172,29 @@ public class DataTypeHandler {
             PrintHandler.printError("Failed to get a last character from an string");
             throw e;
         }
+    }
+
+    /***************************************************************************************************************
+     * These methods handle the reversal of an int array.
+     ***************************************************************************************************************/
+
+    @SuppressWarnings("unused")
+    public static int[] reverseArray(int[] array) {
+        List<Integer> numbersList = new ArrayList<>();
+        for (int num : array) numbersList.add(num);
+        Collections.reverse(numbersList);
+        return numbersList.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    /***************************************************************************************************************
+     * These methods handle the summation of an integer array.
+     ***************************************************************************************************************/
+
+    @SuppressWarnings("unused")
+    public static int sum(int[] array) {
+        int total = 0;
+        for (int num : array) total += num;
+        return total;
     }
 
 }
