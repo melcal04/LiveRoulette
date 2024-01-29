@@ -87,7 +87,7 @@ public class BetDetails {
                         default -> "";
                     },
                     "Button",
-                    "Dealer Table Page",
+                    "Bet Details Page",
                     "//div[contains(@class, 'bet_option side_bet_option side_bet_option_" + sideBet + "')]"
             );
         }

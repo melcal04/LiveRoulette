@@ -30,7 +30,6 @@ public class FuncTest16 extends Functionality {
                 "** " + voice.getName() + " Default is Off");
 
         System.out.println();
-
         EventHandler.click(Settings.Button.Back);
         EventHandler.click(50, 50);
         EventHandler.click(DealerTable.Button.Back);

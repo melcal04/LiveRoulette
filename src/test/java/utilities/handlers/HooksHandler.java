@@ -3,6 +3,8 @@ package utilities.handlers;
 import io.cucumber.java.Scenario;
 import utilities.settings.Variables;
 
+import java.util.Objects;
+
 public class HooksHandler extends Variables {
 
     /***************************************************************************************************************
@@ -35,7 +37,8 @@ public class HooksHandler extends Variables {
     @SuppressWarnings("unused")
     public static void afterStep(Scenario scenario) {
         if (scenario.isFailed()) {
-            if (!scenarioName.contains("RS Test") && !scenarioName.contains("PO Test")) {
+            if (!Objects.equals(featureName, "ResultAndStatistics") &&
+                    !Objects.equals(featureName, "Payout")) {
                 FileHandler.Image.capture(scenarioName, "errors", true);
             }
         }

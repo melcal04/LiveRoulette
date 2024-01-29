@@ -1,6 +1,7 @@
 package modules.Gameplay;
 
 import pages.DealerTable;
+import pages.GameLobby;
 import utilities.handlers.AssertHandler;
 import utilities.handlers.ConditionHandler;
 import utilities.handlers.DataTypeHandler;
@@ -24,7 +25,7 @@ public class GameTest20 extends Gameplay {
         System.out.println("Test Case: 20");
         System.out.println("Actual Results: ");
 
-        verifyDisplay(DealerTable.Label.FindATable);
+        verifyDisplay(GameLobby.Label.FindATable);
 
         AssertHandler.assertTrue(ConditionHandler.isUrlContains("/dealerPage"),
                 "** Player is on the Lobby",

@@ -72,15 +72,24 @@ public class BetInfoTest3 extends BetInformation {
     private static double getExpectedWinLoss() {
         double expectedWinLoss = 0.0;
 
-        expectedWinLoss += getPayout(35, RoundCondition.isNumberWin(roundResult, numberBet), DealerTable.BettingChip.getNumber(numberBet));
-        expectedWinLoss += getPayout(5, RoundCondition.isPosBetWin(roundResult, sixLineBet), DealerTable.BettingChip.getSixLine(sixLineBet));
-        expectedWinLoss += getPayout(17, RoundCondition.isPosBetWin(roundResult, splitBet), DealerTable.BettingChip.getSplit(splitBet));
-        expectedWinLoss += getPayout(11, RoundCondition.isPosBetWin(roundResult, streetBet), DealerTable.BettingChip.getStreet(streetBet));
-        expectedWinLoss += getPayout(1, RoundCondition.isBlackWin(roundResult), DealerTable.BettingChip.getSideBet(colorBet));
-        expectedWinLoss += getPayout(1, RoundCondition.isEvenWin(roundResult), DealerTable.BettingChip.getSideBet(evenBet));
-        expectedWinLoss += getPayout(1, RoundCondition.isHighWin(roundResult), DealerTable.BettingChip.getSideBet(highBet));
-        expectedWinLoss += getPayout(2, RoundCondition.isFirstDozenWin(roundResult), DealerTable.BettingChip.getSideBet(dozenBet));
-        expectedWinLoss += getPayout(2, RoundCondition.isFirstColumnWin(roundResult), DealerTable.BettingChip.getColumn(columnBet));
+        expectedWinLoss += getPayout(35, RoundCondition.isNumberWin(roundResult, numberBet),
+                DealerTable.BettingChip.getNumber(numberBet));
+        expectedWinLoss += getPayout(5, RoundCondition.isPosBetWin(roundResult, sixLineBet),
+                DealerTable.BettingChip.getSixLine(sixLineBet));
+        expectedWinLoss += getPayout(17, RoundCondition.isPosBetWin(roundResult, splitBet),
+                DealerTable.BettingChip.getSplit(splitBet));
+        expectedWinLoss += getPayout(11, RoundCondition.isPosBetWin(roundResult, streetBet),
+                DealerTable.BettingChip.getStreet(streetBet));
+        expectedWinLoss += getPayout(1, RoundCondition.isBlackWin(roundResult),
+                DealerTable.BettingChip.getSideBet(colorBet));
+        expectedWinLoss += getPayout(1, RoundCondition.isEvenWin(roundResult),
+                DealerTable.BettingChip.getSideBet(evenBet));
+        expectedWinLoss += getPayout(1, RoundCondition.isHighWin(roundResult),
+                DealerTable.BettingChip.getSideBet(highBet));
+        expectedWinLoss += getPayout(2, RoundCondition.isFirstDozenWin(roundResult),
+                DealerTable.BettingChip.getSideBet(dozenBet));
+        expectedWinLoss += getPayout(2, RoundCondition.isFirstColumnWin(roundResult),
+                DealerTable.BettingChip.getColumn(columnBet));
 
         return expectedWinLoss;
     }

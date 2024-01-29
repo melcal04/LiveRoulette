@@ -34,7 +34,6 @@ public class FuncTest21 {
                 "** Player is Not Seated On The Selected Table of The Selected Product " + tableInfo);
 
         System.out.println();
-
         EventHandler.click(DealerTable.Button.SkipWelcome, HandleCollection.WithException);
         EventHandler.click(DealerTable.Button.Back);
     }

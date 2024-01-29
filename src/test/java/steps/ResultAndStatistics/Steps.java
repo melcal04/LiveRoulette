@@ -18,8 +18,7 @@ public class Steps {
 
     @When("I Place A Bet Until There Is A Round Result For All Results And Statistics")
     public void iPlaceABetUntilThereIsARoundResultForAllResultsAndStatistics(DataTable dataTable) {
-        List<ResAndStatsCase> resAndStatsCaseList = getBatch(dataTable.asList(String.class));
-        ResAndStatsWait.waitUntilWins(50, resAndStatsCaseList);
+        ResAndStatsWait.waitUntilWins(50, getBatch(dataTable.asList(String.class)));
         FileHandler.TxtFile.write(Variables.getTestResultList(), Constants.Directory.RESULT_AND_STATS_PATH);
         EventHandler.click(DealerTable.Button.Back);
     }

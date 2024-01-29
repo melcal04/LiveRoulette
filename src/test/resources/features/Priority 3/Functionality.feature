@@ -142,12 +142,14 @@ Feature: Functionality
   @FunctionalityTest22
   Scenario: FT Test 22: Checking The Functionality Of The Table Limit Button
     When I Enter The Dealer Table
+    And I Wait "Until Betting Phase"
     And I Click "The Table Limit Button"
     Then I Verify "The Functionality After Clicking The Table Limit Button"
 
   @FunctionalityTest23
   Scenario: FT Test 23: Checking The Functionality After Selecting Other Table Limit
     When I Enter The Dealer Table
+    And I Wait "Until Betting Phase"
     And I Click "The Table Limit Button"
     And I Go "To Other Table Limit Table"
     Then I Verify "The Functionality After Selecting Other Table Limit"

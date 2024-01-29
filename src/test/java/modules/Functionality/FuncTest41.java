@@ -32,6 +32,7 @@ public class FuncTest41 extends Functionality {
                 "** Placed Bet Amount is Deducted on the Available Balance: " + oldBalance + " --> " + actualBalance,
                 "** Placed Bet Amount is Not Deducted on the Available Balance: " + oldBalance + " --> " + actualBalance);
 
+        System.out.println();
         WaitHandler.waitVisibility(DealerTable.Label.ShowTimer, 150);
         EventHandler.click(DealerTable.Button.Back);
     }

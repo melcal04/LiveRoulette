@@ -7,6 +7,8 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import utilities.objects.TestResult;
 
+import java.net.URI;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class Variables extends Driver {
     protected static Actions actions;
     protected static Scenario scenario;
     protected static String scenarioName;
+    protected static String featureName;
     protected static List<TestResult> testResultList;
 
     /***************************************************************************************************************
@@ -42,6 +45,7 @@ public class Variables extends Driver {
     public static void setScenario(Scenario scenario) {
         Variables.scenario = scenario;
         scenarioName = scenario.getName().replace(":", "");
+        featureName = Paths.get(URI.create(String.valueOf(scenario.getUri()))).getFileName().toString().replace(".feature", "");
     }
 
     /***************************************************************************************************************

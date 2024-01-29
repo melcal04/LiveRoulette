@@ -3,13 +3,11 @@ package utilities.handlers;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
-import utilities.settings.Constants;
 import utilities.objects.TestResult;
+import utilities.settings.Constants;
 import utilities.settings.Variables;
 
 import java.io.*;
-import java.net.URI;
-import java.nio.file.Paths;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -23,7 +21,6 @@ public class FileHandler extends Variables {
 
     @SuppressWarnings("unused")
     private static String getFeaturePath() {
-        String featureName = Paths.get(URI.create(String.valueOf(scenario.getUri()))).getFileName().toString().replace(".feature", "");
         return switch (featureName) {
             case "UserInterface" -> Constants.Directory.USER_INTERFACE_PATH;
             case "BetInformation" -> Constants.Directory.BET_INFORMATION_PATH;

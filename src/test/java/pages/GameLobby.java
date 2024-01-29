@@ -111,6 +111,12 @@ public class GameLobby {
                 "Game Lobby Page",
                 "//div[@class='dealer station']//p[@class='table_name']"
         );
+        public static Component FindATable = new Component(
+                "Let's find a table and start betting.",
+                "Label",
+                "Game Lobby Page",
+                "//p[contains(normalize-space(), 'find a table and start betting')]"
+        );
         public static Component RedCounters = new Component(
                 "List of Red Counters",
                 "Label",

@@ -19,9 +19,7 @@ public class FuncTest32 extends Functionality {
         System.out.println("Test Case: 32");
         System.out.println("Actual Results: ");
 
-        AssertHandler.assertTrue(ConditionHandler.isDisplayed(DealerTable.Label.BetsAccepted),
-                "** \"Bets accepted.\" is Displayed",
-                "** \"Bets accepted.\" is Not Displayed");
+        verifyDisplay(DealerTable.Label.BetsAccepted);
 
         WaitHandler.waitVisibility(DealerTable.Label.ShowDealing, 150);
 

@@ -23,17 +23,6 @@ public class FuncTest25 extends Functionality {
 
         verifyDisplay(Statistics.Label.ShowDealing);
         verifyDisplay(Statistics.Container.Statistics);
-
-        AssertHandler.assertTrue(ConditionHandler.isDisplayed(Statistics.Label.HotNumbers) &&
-                        ConditionHandler.isDisplayed(Statistics.Label.HotCounters),
-                "** Hot Numbers and Counters is Displayed",
-                "** Hot Numbers and Counters is Not Displayed");
-
-        AssertHandler.assertTrue(ConditionHandler.isDisplayed(Statistics.Label.ColdNumbers) &&
-                        ConditionHandler.isDisplayed(Statistics.Label.ColdCounters),
-                "** Cold Numbers and Counters is Displayed",
-                "** Cold Numbers and Counters is Not Displayed");
-
         verifyDisplay(Statistics.Label.RedPercentage);
         verifyDisplay(Statistics.Label.BlackPercentage);
         verifyDisplay(Statistics.Label.ZeroPercentage);
@@ -47,6 +36,16 @@ public class FuncTest25 extends Functionality {
         verifyDisplay(Statistics.Label.FirstColPercentage);
         verifyDisplay(Statistics.Label.SecondColPercentage);
         verifyDisplay(Statistics.Label.ThirdColPercentage);
+
+        AssertHandler.assertTrue(ConditionHandler.isDisplayed(Statistics.Label.HotNumbers) &&
+                        ConditionHandler.isDisplayed(Statistics.Label.HotCounters),
+                "** Hot Numbers and Counters is Displayed",
+                "** Hot Numbers and Counters is Not Displayed");
+
+        AssertHandler.assertTrue(ConditionHandler.isDisplayed(Statistics.Label.ColdNumbers) &&
+                        ConditionHandler.isDisplayed(Statistics.Label.ColdCounters),
+                "** Cold Numbers and Counters is Displayed",
+                "** Cold Numbers and Counters is Not Displayed");
 
         System.out.println();
         EventHandler.click(Statistics.Button.CloseStatistics);

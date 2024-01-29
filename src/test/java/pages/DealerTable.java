@@ -275,12 +275,6 @@ public class DealerTable {
                 "Dealer Table Page",
                 "//p[contains(normalize-space(), 'Give it a try?')]"
         );
-        public static Component FindATable = new Component(
-                "Let's find a table and start betting.",
-                "Label",
-                "Dealer Table Page",
-                "//p[contains(normalize-space(), 'find a table and start betting')]"
-        );
         public static Component ExceedTheMaxBet = new Component(
                 "You've exceeded the max bet amount.",
                 "Label",

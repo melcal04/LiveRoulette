@@ -20,7 +20,7 @@ public class Functionality extends TestMethod {
         EventHandler.click(DealerTable.Button.Back, 1);
     }
 
-    private static void  goToMenu() {
+    private static void goToMenu() {
         EventHandler.click(DealerTable.Button.Menu, 1);
     }
 
@@ -33,7 +33,7 @@ public class Functionality extends TestMethod {
         EventHandler.click(MyBets.Method.getDetailsButton(roundId), HandleCollection.WithScroll);
     }
 
-    public static void  goToLimitsAndPayouts() {
+    public static void goToLimitsAndPayouts() {
         goToMenu();
         EventHandler.click(Menu.Button.LimitPayouts, 3);
     }
