@@ -91,7 +91,7 @@ public class Navigation {
         boolean isError = true;
         do {
             try {
-                if (count == 4) NavigationHandler.refresh();
+                if (count > 0) NavigationHandler.refresh();
                 navigator.execute();
                 isError = false;
             } catch (Exception e) {

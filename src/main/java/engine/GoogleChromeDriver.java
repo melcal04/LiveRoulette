@@ -25,6 +25,7 @@ public class GoogleChromeDriver extends ChromeDriver {
         chromeOptions.setCapability("requireWindowFocus", false);
         chromeOptions.setCapability("enablePersistentHover", false);
 
+        chromeOptions.addArguments("--headless");
         chromeOptions.setExperimentalOption("mobileEmulation", getMobileEmulation());
 
         return chromeOptions;
