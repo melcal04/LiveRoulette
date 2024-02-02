@@ -21,5 +21,5 @@ This is a backup version of an automated testing script for the Live Roulette Mo
 - Version 2.1: Component Version -> Change Path to Component Object
 
 ## Notes
-** I have completed the initial development of the automated testing scripts for the Live Roulette Mobile Revamp.
+** I have completed the initial development of the automated testing scripts for the Live Roulette Mobile Revamp. 
 However, I plan to enhance their functionality and address any existing bugs to ensure the quality of the software.
