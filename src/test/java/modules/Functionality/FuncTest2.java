@@ -12,7 +12,7 @@ public class FuncTest2 extends Functionality {
     static String[] roundResult;
 
     public static void enterAnyDealerTableWith300Rounds() {
-        Component dealerTables = GameLobby.Method.getDealerTable("300");
+        Component dealerTables = GameLobby.Method.getDealerTable("Deals 300");
         EventHandler.click(dealerTables, GetHandler.getElementByRandom(dealerTables));
         EventHandler.click(DealerTable.Button.SkipWelcome, HandleCollection.WithException);
     }

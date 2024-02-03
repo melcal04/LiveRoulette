@@ -14,7 +14,7 @@ public class FuncTest39 extends Functionality {
             placeAndConfirmAnyBettingOptions();
             balanceAfterBetting = GetHandler.getDouble(DealerTable.Label.BalanceValue);
         }
-        WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         balanceAfterDealing = getUpdatedBalance();
     }
 

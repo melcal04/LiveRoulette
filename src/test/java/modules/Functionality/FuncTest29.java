@@ -23,7 +23,7 @@ public class FuncTest29 extends Functionality {
         System.out.println("Test Case: 29");
         System.out.println("Actual Results: ");
 
-        verifyDisplay(DealerTable.Label.RememberedYourChips);
+        verifyDisplay(DealerTable.Label.RememberedYourChipSettings);
 
         AssertHandler.assertTrue(ConditionHandler.isDisplayed(DealerTable.Container.BettingOptions),
                 "** Betting Chips Setting is Closed",

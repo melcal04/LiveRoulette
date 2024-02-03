@@ -2,13 +2,11 @@
 Feature: Result And Statistics
 
   Background:
-    Given I Go To Mobile Site
+    Given I Go To The Live Casino
 
   @ResultAndStatisticsWait
-  Scenario: Wait Until There Is A Round Result For Result And Statistics
-    When I Login An Account
-    And I Go To Live Casino
-    And I Join Live Roulette Revamp
+  Scenario: RS Fetch: Wait Until There Is A Round Result For Result And Statistics
+    When I Join Live Roulette Revamp
     And I Enter The Dealer Table
     Then I Place A Bet Until There Is A Round Result For All Results And Statistics
       | Result Panel          |

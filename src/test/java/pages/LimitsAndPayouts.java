@@ -18,7 +18,7 @@ public class LimitsAndPayouts {
     }
 
     /***************************************************************************************************************
-     * These are the label components on the LimitsAndPayouts Page.
+     * These are the label components on the Limits And Payouts Page.
      ***************************************************************************************************************/
 
     public static class Label {
@@ -41,7 +41,7 @@ public class LimitsAndPayouts {
                 "//div[normalize-space()='Straight-up']/ancestor::div[1]//div[@class='row_item'][2]"
         );
         public static Component StraightUpPayout = new Component(
-                "Straight Up PayoutCase",
+                "Straight Up Payout",
                 "Label",
                 "Limits And Payouts Page",
                 "//div[normalize-space()='Straight-up']/ancestor::div[1]//div[@class='row_item'][3]"
@@ -53,7 +53,7 @@ public class LimitsAndPayouts {
                 "//div[normalize-space()='Even Chance']/ancestor::div[1]//div[@class='row_item'][2]"
         );
         public static Component EvenChancePayout = new Component(
-                "Even Chance PayoutCase",
+                "Even Chance Payout",
                 "Label",
                 "Limits And Payouts Page",
                 "//div[normalize-space()='Even Chance']/ancestor::div[1]//div[@class='row_item'][3]"
@@ -65,7 +65,7 @@ public class LimitsAndPayouts {
                 "//div[normalize-space()='Dozen/Column']/ancestor::div[1]//div[@class='row_item'][2]"
         );
         public static Component DozenColumnPayout = new Component(
-                "Dozen Column PayoutCase",
+                "Dozen Column Payout",
                 "Label",
                 "Limits And Payouts Page",
                 "//div[normalize-space()='Dozen/Column']/ancestor::div[1]//div[@class='row_item'][3]"
@@ -77,7 +77,7 @@ public class LimitsAndPayouts {
                 "//div[normalize-space()='Split']/ancestor::div[1]//div[@class='row_item'][2]"
         );
         public static Component SplitPayout = new Component(
-                "Split PayoutCase",
+                "Split Payout",
                 "Label",
                 "Limits And Payouts Page",
                 "//div[normalize-space()='Split']/ancestor::div[1]//div[@class='row_item'][3]"
@@ -89,7 +89,7 @@ public class LimitsAndPayouts {
                 "//div[normalize-space()='Street']/ancestor::div[1]//div[@class='row_item'][2]"
         );
         public static Component StreetPayout = new Component(
-                "Street PayoutCase",
+                "Street Payout",
                 "Label",
                 "Limits And Payouts Page",
                 "//div[normalize-space()='Street']/ancestor::div[1]//div[@class='row_item'][3]"
@@ -101,7 +101,7 @@ public class LimitsAndPayouts {
                 "//div[normalize-space()='Six Line']/ancestor::div[1]//div[@class='row_item'][2]"
         );
         public static Component SixLinePayout = new Component(
-                "Six Line PayoutCase",
+                "Six Line Payout",
                 "Label",
                 "Limits And Payouts Page",
                 "//div[normalize-space()='Six Line']/ancestor::div[1]//div[@class='row_item'][3]"
@@ -113,7 +113,7 @@ public class LimitsAndPayouts {
                 "//div[normalize-space()='Corner/Zero Section']/ancestor::div[1]//div[@class='row_item'][2]"
         );
         public static Component CornerZeroSectionPayout = new Component(
-                "Corner Zero Section PayoutCase",
+                "Corner Zero Section Payout",
                 "Label",
                 "Limits And Payouts Page",
                 "//div[normalize-space()='Corner/Zero Section']/ancestor::div[1]//div[@class='row_item'][3]"
@@ -125,7 +125,7 @@ public class LimitsAndPayouts {
                 "//div[normalize-space()='Zero Corner']/ancestor::div[1]//div[@class='row_item'][2]"
         );
         public static Component ZeroCornerPayout = new Component(
-                "Zero Corner PayoutCase",
+                "Zero Corner Payout",
                 "Label",
                 "Limits And Payouts Page",
                 "//div[normalize-space()='Zero Corner']/ancestor::div[1]//div[@class='row_item'][3]"

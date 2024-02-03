@@ -13,7 +13,7 @@ public class GameTest19 extends Gameplay {
             WaitHandler.waitVisibility(DealerTable.Label.ShowDealing, 150);
             System.out.println("Round Result: " + DataTypeHandler.toString(getRoundResult()));
             System.out.println("Count: " + (++count));
-            WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBets, 150);
+            WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         } while (count < 8);
 
         System.out.println();

@@ -13,62 +13,35 @@ import utilities.settings.Accounts;
 
 public class Navigation {
 
-    @Given("I Go To Mobile Site")
+    @Given("I Go To The Live Casino")
     public void iGoToMobileSite() {
         Navigator navigator = () -> {
             Accounts.setEnvironment(Environment.PRODUCTION);
             NavigationHandler.goTo(Accounts.getMobileUrl());
             EventHandler.select(Login.Dropdown.Language, "English");
+            EventHandler.click(Login.Thumbnail.LiveCasino);
             WaitHandler.waitUrlToBe(Accounts.getMobileUrl(), 5);
-        };
-        Printer printer = PrintHandler::printWarning;
-        retrySteps(navigator, printer, "Go To The Website.");
-    }
-
-    @When("I Login An Account")
-    public void iLoginAnAccount() {
-        Navigator navigator = () -> {
-            EventHandler.click(Login.Button.OpenLoginModal);
+            WaitHandler.waitVisibility(Login.Container.LoginModal, 5);
             EventHandler.sendKeys(Login.TextBox.Username, Accounts.getUsername());
             EventHandler.sendKeys(Login.TextBox.Password, Accounts.getPassword());
             EventHandler.click(Login.Button.Submit);
-            WaitHandler.waitUrlToBe("https://play.sbobet.com/landing", 5);
-        };
-        Printer printer = PrintHandler::printWarning;
-        retrySteps(navigator, printer, "Login An Account.");
-    }
-
-    @When("I Go To Live Casino")
-    public void iGoToLiveCasino() {
-        Navigator navigator = () -> {
-            if (ConditionHandler.isDisplayed(Home.Thumbnail.LiveCasino)) {
-                WaitHandler.wait(2);
-                EventHandler.click(Home.Thumbnail.LiveCasino);
-                WaitHandler.wait(5);
-                WaitHandler.waitUrlContains("/CasinoMobile", 5);
-            } else {
+            if (ConditionHandler.isUrlContains("/roulette")) {
                 EventHandler.click(DealerTable.Button.SkipWelcome, HandleCollection.WithException);
                 EventHandler.click(DealerTable.Button.Back, HandleCollection.WithException);
-                WaitHandler.waitUrlContains("/dealerPage", 5);
                 EventHandler.click(GameLobby.Button.Back, HandleCollection.WithException);
-                WaitHandler.waitUrlContains("/CasinoMobile", 5);
             }
+            WaitHandler.waitUrlContains("/CasinoMobile", 5);
         };
         Printer printer = PrintHandler::printWarning;
-        retrySteps(navigator, printer, "Go To Live Casino.");
+        retrySteps(navigator, printer, "Go To The Live Casino.");
     }
 
     @When("I Join Live Roulette Revamp")
     public void iJoinLiveRouletteRevamp() {
         Navigator navigator = () -> {
-            if (ConditionHandler.isDisplayed(LiveCasino.Thumbnail.LiveRouletteRevamp)) {
-                EventHandler.click(LiveCasino.Button.CloseBanner, HandleCollection.WithException);
-                EventHandler.click(LiveCasino.Thumbnail.LiveRouletteRevamp);
-                WaitHandler.wait(5);
-            } else {
-                EventHandler.click(DealerTable.Button.SkipWelcome, HandleCollection.WithException);
-                EventHandler.click(DealerTable.Button.Back, HandleCollection.WithException);
-            }
+            EventHandler.click(LiveCasino.Button.CloseBanner, HandleCollection.WithException);
+            EventHandler.click(LiveCasino.Thumbnail.LiveRouletteRevamp);
+            WaitHandler.wait(5);
             WaitHandler.waitUrlContains("/dealerPage", 5);
         };
         Printer printer = PrintHandler::printWarning;

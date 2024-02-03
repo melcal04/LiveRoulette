@@ -17,7 +17,7 @@ public class GameTest20 extends Gameplay {
             WaitHandler.waitVisibility(DealerTable.Label.ShowDealing, 150);
             System.out.println("Round Result: " + DataTypeHandler.toString(getRoundResult()));
             System.out.println("Count: " + (++count));
-            if (count < 9) WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBets, 150);
+            if (count < 9) WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         } while (count < 9);
 
         System.out.println();

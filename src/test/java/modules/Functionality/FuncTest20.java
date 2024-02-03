@@ -7,8 +7,8 @@ import utilities.handlers.*;
 public class FuncTest20 {
 
     public static void goToOtherLiveProducts() {
-        EventHandler.click(SwitchTable.Button.InactiveGameButtons,
-                GetHandler.getElementByRandom(SwitchTable.Button.InactiveGameButtons));
+        EventHandler.click(SwitchTable.Button.InactiveGames,
+                GetHandler.getElementByRandom(SwitchTable.Button.InactiveGames));
         WaitHandler.wait(3);
     }
 

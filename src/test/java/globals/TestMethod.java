@@ -39,8 +39,8 @@ public class TestMethod {
      ***************************************************************************************************************/
 
     public static String[] getRoundResult() {
-        WaitHandler.waitVisibility(DealerTable.Container.NumberResult, 150);
-        return GetHandler.getAttribute(DealerTable.Container.NumberResult, "class")
+        WaitHandler.waitVisibility(DealerTable.Container.WinResult, 150);
+        return GetHandler.getAttribute(DealerTable.Container.WinResult, "class")
                 .replaceAll("bet_option num_bet_option num_bet_option_|bet_option_| minify win", "")
                 .toUpperCase().split(" ");
     }

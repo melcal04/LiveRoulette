@@ -5,16 +5,36 @@ import utilities.objects.Component;
 public class Login {
 
     /***************************************************************************************************************
+     * These are the container components on the Login Page.
+     ***************************************************************************************************************/
+
+    public static class Container {
+        public static Component LoginModal = new Component(
+                "Login Modal",
+                "Container",
+                "Login Page",
+                "//div[@class='loginModal-content formArea']"
+        );
+    }
+
+    /***************************************************************************************************************
+     * These are the thumbnail components on the Login Page.
+     ***************************************************************************************************************/
+
+    public static class Thumbnail {
+        public static Component LiveCasino = new Component(
+                "Live Casino",
+                "Thumbnail",
+                "Login Page",
+                "//div[@class='productThumbnail-item JARVIS_LandingPage_ProductSelection_Btn_Casino']"
+        );
+    }
+
+    /***************************************************************************************************************
      * These are the button components on the Login Page.
      ***************************************************************************************************************/
 
     public static class Button {
-        public static Component OpenLoginModal = new Component(
-                "Open Login Modal",
-                "Button",
-                "Login Page",
-                "//button[@id='btnOpenLogin']"
-        );
         public static Component Submit = new Component(
                 "Submit Login Form",
                 "Button",

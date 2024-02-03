@@ -20,7 +20,7 @@ public class GameTest7 extends Gameplay {
                 "** Start Time of Betting Timer is Correct: " + expectedStartTime + " == " + actualStartTime,
                 "** Start Time of Betting Timer is Incorrect: " + expectedStartTime + " != " + actualStartTime);
 
-        verifyDisplay(DealerTable.Label.PlaceYourBets);
+        verifyDisplay(DealerTable.Label.PlaceYourBetsPlease);
         verifyDisplay(DealerTable.Label.ShowTimer);
 
         Component bettingOptions = DealerTable.Container.BettingOptions;

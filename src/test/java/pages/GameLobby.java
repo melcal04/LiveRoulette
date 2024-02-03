@@ -19,12 +19,6 @@ public class GameLobby {
      ***************************************************************************************************************/
 
     public static class Container {
-        public static Component GameLobby = new Component(
-                "Game Lobby",
-                "Container",
-                "Game Lobby Page",
-                "//div[@class='dealer']"
-        );
         public static Component DealerTables = new Component(
                 "List of Dealer Tables",
                 "Container",
@@ -93,12 +87,6 @@ public class GameLobby {
                 "Game Lobby Page",
                 "//div[contains(@class, 'balance_btn')]//span[2]"
         );
-        public static Component FirstNumberInRoadMap = new Component(
-                "First Number In RoadMap",
-                "Label",
-                "Game Lobby Page",
-                tablesPath + "[1]//ul[1]//li[1]"
-        );
         public static Component DealerNames = new Component(
                 "List of Dealer Names",
                 "Label",
@@ -116,6 +104,12 @@ public class GameLobby {
                 "Label",
                 "Game Lobby Page",
                 "//p[contains(normalize-space(), 'find a table and start betting')]"
+        );
+        public static Component FirstNumberInRoadMap = new Component(
+                "First Number In RoadMap",
+                "Label",
+                "Game Lobby Page",
+                tablesPath + "[1]//ul[1]//li[1]"
         );
         public static Component RedCounters = new Component(
                 "List of Red Counters",
@@ -150,7 +144,7 @@ public class GameLobby {
     public static class Method {
         public static Component getDealerTable(String dealsOrTable) {
             return new Component(
-                    "Dealer Table of " + dealsOrTable,
+                    dealsOrTable + " Dealer Table",
                     "Container",
                     "Game Lobby Page",
                     tablesPath + "//p[(contains(text(), '" +
@@ -159,7 +153,7 @@ public class GameLobby {
         }
         public static Component getAllCounters(String dealsOrTable) {
             return new Component(
-                    "List of All Counters in Dealer Table of " + dealsOrTable,
+                    "List of All Counters in " + dealsOrTable + " Dealer Table",
                     "Label",
                     "Game Lobby Page",
                     tablesPath + "//p[(contains(text(), '" + dealsOrTable +
@@ -168,7 +162,7 @@ public class GameLobby {
         }
         public static Component getTotalRoundCounter(String dealsOrTable) {
             return new Component(
-                    "Total Round Counter in Dealer Table of " + dealsOrTable,
+                    "Total Round Counter in " + dealsOrTable + " Dealer Table",
                     "Label",
                     "Game Lobby Page",
                     tablesPath + "//p[(contains(text(), '" + dealsOrTable +

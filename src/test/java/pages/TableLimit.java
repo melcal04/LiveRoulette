@@ -24,8 +24,8 @@ public class TableLimit {
     public static class Method {
         public static Component getTableLimits(boolean isActiveInclude) {
             return new Component(
-                    isActiveInclude ? "Table Limits" : "Table Limits (Active Not Included)",
-                    "Getter",
+                    "List of " + (isActiveInclude ? "Table Limits" : "Table Limits (Active Not Included)"),
+                    "Button",
                     "Table Limit Page",
                     isActiveInclude ? "//div[@class='side_section_bottom']//button[2]//li" : "//li[@class='table_limit']"
             );

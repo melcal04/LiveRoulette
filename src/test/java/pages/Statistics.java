@@ -52,7 +52,7 @@ public class Statistics {
                 "//p[@id='showTimer']"
         );
         public static Component ShowDealing = new Component(
-                "Show Dealing Wording",
+                "Show Dealing",
                 "Label",
                 "Statistics Page",
                 "//p[@id='showDealingWording']"

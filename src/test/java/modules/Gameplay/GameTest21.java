@@ -14,7 +14,7 @@ public class GameTest21 extends Gameplay {
 
         EventHandler.click(DealerTable.BettingOption.getNumber(4));
         WaitHandler.waitVisibility(DealerTable.Container.Notification, 150);
-        verifyDisplay(DealerTable.Label.ExceedTheMaxBet);
+        verifyDisplay(DealerTable.Label.ExceededTheMaxBet);
 
         System.out.println();
         EventHandler.click(DealerTable.Button.Back);

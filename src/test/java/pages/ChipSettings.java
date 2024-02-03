@@ -16,7 +16,7 @@ public class ChipSettings {
                 "//div[@class='chips']//button[@class='chip']"
         );
         public static Component ChipSelections = new Component(
-                "List of Chip Selection",
+                "List of Chip Selections",
                 "Container",
                 "Chip Settings Page",
                 "//div[@class='chips chips_selections']//button[not(contains(@style, 'display: none'))]"
@@ -54,7 +54,7 @@ public class ChipSettings {
                 "//span[normalize-space()='My Chips']"
         );
         public static Component ChipSelections = new Component(
-                "Chip Selection",
+                "Chip Selections",
                 "Label",
                 "Chip Settings Page",
                 "//span[normalize-space()='Selections']"
@@ -68,7 +68,7 @@ public class ChipSettings {
     public static class Method {
         public static Component getChipSelection(String chipValue) {
             return new Component(
-                    "Chip Selection #" + chipValue,
+                    "#" + chipValue + " Chip Selection",
                     "Button",
                     "Chip Settings Page",
                     "//div[@class='chips chips_selections']" +

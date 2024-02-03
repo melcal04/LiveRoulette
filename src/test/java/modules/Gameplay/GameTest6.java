@@ -19,7 +19,7 @@ public class GameTest6 {
         System.out.println("Actual Results: ");
 
         WaitHandler.waitInvisibility(DealerTable.Container.BetResult, 150);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         WaitHandler.waitInvisibility(DealerTable.Label.NoMoreBets, 150);
 
         Component chipOptions = DealerTable.Button.ChipOptions;

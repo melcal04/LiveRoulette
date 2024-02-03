@@ -9,8 +9,8 @@ public class MyBets {
      ***************************************************************************************************************/
 
     public static class Container {
-        public static Component HistoryCard = new Component(
-                "History Card",
+        public static Component HistoryCards = new Component(
+                "History Cards",
                 "Container",
                 "My Bets Page",
                 "//div[@class='history_card']"
@@ -102,13 +102,13 @@ public class MyBets {
                 "//div[@class='info']//p[2]"
         );
         public static Component SettledMessage = new Component(
-                "Settled Message",
+                "All transactions are time stamped at GMT-4.",
                 "Label",
                 "My Bets Page",
                 "//div[@id='Settled_history']//p[@class='time_stamped'][normalize-space()='All transactions are time stamped at GMT-4.']"
         );
         public static Component RunningMessage = new Component(
-                "Running Message",
+                "All transactions are time stamped at GMT-4.",
                 "Label",
                 "My Bets Page",
                 "//div[@id='Running_history']//p[@class='time_stamped'][normalize-space()='All transactions are time stamped at GMT-4.']"
@@ -128,8 +128,8 @@ public class MyBets {
     public static class Method {
         public static Component getDetailsButton(String roundId) {
             return new Component(
-                    "Details Button of Round ID " + roundId,
-                    "Getter",
+                    "Round ID #" + roundId + " Details",
+                    "Button",
                     "My Bets Page",
                     "//span[contains(normalize-space(), '" + roundId + "')]/ancestor::div[3]" +
                             "//button[normalize-space()='Details']"

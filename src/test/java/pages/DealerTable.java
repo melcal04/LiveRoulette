@@ -27,8 +27,8 @@ public class DealerTable {
                 "Dealer Table Page",
                 "//div[contains(@class,'roulette_bet_options')]"
         );
-        public static Component NumberResult = new Component(
-                "Number Result",
+        public static Component WinResult = new Component(
+                "Win Result",
                 "Container",
                 "Dealer Table Page",
                 "//div[contains(@class,'num_bet_option') and contains(@class, 'win')]"
@@ -173,8 +173,8 @@ public class DealerTable {
                 "Dealer Table Page",
                 "//p[@id='showTimer']"
         );
-        public static Component PlaceYourBets = new Component(
-                "Place your bets please.",
+        public static Component PlaceYourBetsPlease = new Component(
+                "Place your bets please",
                 "Label",
                 "Dealer Table Page",
                 "//p[contains(normalize-space(), 'Place your bets please')]"
@@ -246,25 +246,25 @@ public class DealerTable {
                 "//p[contains(normalize-space(), 'Bets accepted.')]"
         );
         public static Component ConfirmNow = new Component(
-                "Confirm Now",
+                "Confirm now?",
                 "Label",
                 "Dealer Table Page",
                 "//p[@class='popUp_title']"
         );
-        public static Component BetIsClosing = new Component(
+        public static Component BettingIsClosing = new Component(
                 "Betting is closing.",
                 "Label",
                 "Dealer Table Page",
                 "//div[@class='popUp']//p[contains(normalize-space(), 'Betting is closing.')]"
         );
-        public static Component YouWonValue = new Component(
-                "You Won Value",
+        public static Component WonValue = new Component(
+                "Won Value",
                 "Label",
                 "Dealer Table Page",
                 "//p[@class='you_won_amount_text']"
         );
-        public static Component YouWonText = new Component(
-                "You Won Text",
+        public static Component WonText = new Component(
+                "Won Text",
                 "Label",
                 "Dealer Table Page",
                 "//div[@class='you_won_title ribbon']"
@@ -275,7 +275,7 @@ public class DealerTable {
                 "Dealer Table Page",
                 "//p[contains(normalize-space(), 'Give it a try?')]"
         );
-        public static Component ExceedTheMaxBet = new Component(
+        public static Component ExceededTheMaxBet = new Component(
                 "You've exceeded the max bet amount.",
                 "Label",
                 "Dealer Table Page",
@@ -287,7 +287,7 @@ public class DealerTable {
                 "Dealer Table Page",
                 "//p[contains(text(),'Your bets are being settled right now. Please wait.')]"
         );
-        public static Component RememberedYourChips = new Component(
+        public static Component RememberedYourChipSettings = new Component(
                 "Remembered your chip settings.",
                 "Label",
                 "Dealer Table Page",

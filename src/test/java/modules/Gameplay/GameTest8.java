@@ -17,7 +17,7 @@ public class GameTest8 extends Gameplay {
         System.out.println("Actual Results: ");
 
         waitBettingPhase(40, true);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
 
         for (byte i = 0; i < 9; i++) {
             verifyPlaceBet(DealerTable.BettingOption.getSideBet(BettingOption.SIDE_BET_LIST[i]),
@@ -55,7 +55,7 @@ public class GameTest8 extends Gameplay {
         }
 
         waitBettingPhase(40, true);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
 
         for (byte i = 0; i < 37; i++) {
             verifyPlaceBet(DealerTable.BettingOption.getNumber(i),
@@ -63,7 +63,7 @@ public class GameTest8 extends Gameplay {
         }
 
         waitBettingPhase(40, true);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
 
         for (int[][] splitOption : BettingOption.SPLIT_LIST) {
             verifyPlaceBet(DealerTable.BettingOption.getSplit(splitOption),

@@ -13,7 +13,7 @@ public class UITest4 extends UserInterface {
         System.out.println("Actual Results: ");
 
         verifyDisplay(DealerTable.Container.Announcement);
-        WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         WaitHandler.waitVisibility(DealerTable.Label.ShowTimer, 150);
         verifyDisplay(DealerTable.Label.ShowTimer);
         assertGameUI();

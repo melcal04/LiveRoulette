@@ -28,13 +28,13 @@ public class GameTest16 extends Gameplay {
                 "** Round Result is Displayed",
                 "** Round Result is Not Displayed");
 
-        verifyDisplay(DealerTable.Label.YouWonText);
+        verifyDisplay(DealerTable.Label.WonText);
 
-        AssertHandler.assertTrue(ConditionHandler.isDisplayed(DealerTable.Label.YouWonValue),
+        AssertHandler.assertTrue(ConditionHandler.isDisplayed(DealerTable.Label.WonValue),
                 "** Win Result is Displayed",
                 "** Win Result is Not Displayed");
 
-        WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         AssertHandler.assertTrue(getUpdatedBalance() > balanceAfterBetting,
                 "** Balance is Updated",
                 "** Balance is Not Updated");

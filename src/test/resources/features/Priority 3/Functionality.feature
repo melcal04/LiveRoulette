@@ -2,9 +2,7 @@
 Feature: Functionality
 
   Background:
-    Given I Go To Mobile Site
-    And I Login An Account
-    And I Go To Live Casino
+    Given I Go To The Live Casino
     And I Join Live Roulette Revamp
 
   @FunctionalityTest1

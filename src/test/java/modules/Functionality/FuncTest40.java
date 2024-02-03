@@ -18,7 +18,7 @@ public class FuncTest40 extends Functionality {
                 "** \"Confirm now?\" is Displayed",
                 "** \"Confirm now?\" is Not Displayed");
 
-        verifyDisplay(DealerTable.Label.BetIsClosing);
+        verifyDisplay(DealerTable.Label.BettingIsClosing);
         verifyDisplay(DealerTable.Button.PopUpConfirm);
         verifyDisplay(DealerTable.Button.PopUpNotNow);
 

@@ -28,8 +28,8 @@ public class SwitchTable {
                 "Switch Table Page",
                 "//p[normalize-space()='Sic Bo']/ancestor::button"
         );
-        public static Component InactiveGameButtons = new Component(
-                "List of Inactive Game Buttons",
+        public static Component InactiveGames = new Component(
+                "List of Inactive Games",
                 "Button",
                 "Switch Table Page",
                 "//button[@class='game_icon icon']"
@@ -68,8 +68,8 @@ public class SwitchTable {
     public static class Method {
         public static Component getTableCards(boolean isActiveInclude) {
             return new Component(
-                    isActiveInclude ? "Table Cards" : "Table Cards (Active Not Included)",
-                    "Getter",
+                    "List of " + (isActiveInclude ? "Table Cards" : "Table Cards (Active Not Included)"),
+                    "Container",
                     "Switch Table Page",
                     isActiveInclude ? "//div[contains(@class, 'table_card')]" : "//div[@class='table_card']"
             );

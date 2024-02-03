@@ -50,7 +50,7 @@ public class Functionality extends TestMethod {
 
     public static void placeABetOnAnyBettingOptions() {
         waitBettingPhase(40, false);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         roundId = getRoundId();
         oldBalance = GetHandler.getDouble(DealerTable.Label.BalanceValue);
         EventHandler.click(DealerTable.BettingOption.getSideBet(BettingOption.RED));
@@ -68,7 +68,7 @@ public class Functionality extends TestMethod {
 
     public static void waitUntilBettingTimerReachesLastSeconds() {
         waitBettingPhase(10, true);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
     }
 
 }

@@ -23,7 +23,7 @@ public class GameTest4 extends Gameplay {
         EventHandler.click(DealerTable.Button.Back);
         EventHandler.click(GameLobby.Method.getDealerTable(targetTable), HandleCollection.WithException);
 
-        verifyDisplay(DealerTable.Label.PlaceYourBets);
+        verifyDisplay(DealerTable.Label.PlaceYourBetsPlease);
         verifyDisplay(DealerTable.Label.WelcomeAndGoodLuck);
         WaitHandler.waitVisibility(DealerTable.Label.ShowTimer, 150);
         verifyDisplay(DealerTable.Label.ShowTimer);

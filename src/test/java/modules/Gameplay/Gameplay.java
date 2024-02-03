@@ -15,7 +15,7 @@ public class Gameplay extends TestMethod {
 
     public static void placeABetOnAnyBettingOptions() {
         waitBettingPhase(40, false);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         EventHandler.click(DealerTable.BettingOption.getSideBet(BettingOption.RED));
         balanceBeforeBetting = GetHandler.getDouble(DealerTable.Label.BalanceValue);
     }
@@ -36,7 +36,7 @@ public class Gameplay extends TestMethod {
         EventHandler.click(50, 50);
 
         waitBettingPhase(40, false);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
 
         double bet = 0.0;
         while (bet < limit) {

@@ -11,7 +11,7 @@ public class FuncTest30 extends Functionality {
 
     public static void placeAndUndoAnyBettingOptions() {
         waitBettingPhase(40, false);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         EventHandler.click(DealerTable.BettingOption.getSideBet(BettingOption.RED));
         EventHandler.click(DealerTable.Button.Undo);
         WaitHandler.wait(2);
@@ -20,7 +20,7 @@ public class FuncTest30 extends Functionality {
 
     public static void placeABetOnTwoOrMoreBettingOptions() {
         waitBettingPhase(40, false);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         EventHandler.click(DealerTable.BettingOption.getSideBet(BettingOption.RED));
         EventHandler.click(DealerTable.BettingOption.getSideBet(BettingOption.HIGH));
         EventHandler.click(DealerTable.BettingOption.getSideBet(BettingOption.ODD));

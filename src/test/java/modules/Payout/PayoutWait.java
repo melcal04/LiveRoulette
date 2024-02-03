@@ -66,7 +66,7 @@ public class PayoutWait extends Payout {
         System.out.println("    Balance Before Betting: " + balanceBeforeBetting);
 
         waitBettingPhase(round == 1 ? 40 : 20, false);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
 
         processPayoutCases(PayoutCase::setBetOption);
         EventHandler.click(DealerTable.Button.Confirm);
@@ -92,7 +92,7 @@ public class PayoutWait extends Payout {
     private static void setAfterDealing() {
         processPayoutCases(payoutCase -> payoutCase.computeTestCase(roundResult));
 
-        WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitVisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         balanceAfterDealing = getUpdatedBalance();
         System.out.println("    Balance After Dealing: " + balanceAfterDealing);
 

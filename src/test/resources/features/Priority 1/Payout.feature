@@ -2,21 +2,17 @@
 Feature: Payout
 
   Background:
-    Given I Go To Mobile Site
+    Given I Go To The Live Casino
 
   @PayoutTest1
   Scenario: PO Test 1: Checking The Mapping Of Live Roulette Betting Options
-    When I Login An Account
-    And I Go To Live Casino
-    And I Join Live Roulette Revamp
+    When I Join Live Roulette Revamp
     And I Enter The Dealer Table
     Then I Verify The Mapping Of Betting Options
 
   @PayoutWait
-  Scenario: Wait Until There Is A Round Result For Payout
-    When I Login An Account
-    And I Go To Live Casino
-    And I Join Live Roulette Revamp
+  Scenario: PO Fetch: Wait Until There Is A Round Result For Payout
+    When I Join Live Roulette Revamp
     And I Enter The Dealer Table
     Then I Place A Bet Until There Is A Round Result For All Payouts
       | Red          |

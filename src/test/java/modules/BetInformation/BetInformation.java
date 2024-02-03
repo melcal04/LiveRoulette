@@ -20,7 +20,7 @@ public class BetInformation extends TestMethod {
 
     protected static void placeBet(String betOption) {
         waitBettingPhase(15, false);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         EventHandler.click(DealerTable.BettingOption.getSideBet(betOption));
         EventHandler.click(DealerTable.Button.Confirm);
     }

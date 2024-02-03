@@ -73,7 +73,7 @@ public class ResAndStatsWait extends ResAndStats {
 
     private static void setBeforeDealing(int round) {
         waitBettingPhase(15, false);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBets, 150);
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
 
         if (round == 1) setResAndStats();
 
