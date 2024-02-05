@@ -1,5 +1,6 @@
 package utilities.handlers;
 
+import org.testng.SkipException;
 import utilities.objects.TestResult;
 import utilities.settings.Variables;
 
@@ -54,7 +55,7 @@ public class ResultHandler extends Variables {
         } catch (NoSuchElementException e) {
             PrintHandler.printError("No round result found for test case " + testCase +
                     (division == 0 ? "" : " division " + division));
-            throw e;
+            throw new SkipException(e.getMessage(), e);
         } catch (Exception e) {
             PrintHandler.printError("Failed to get test result for test case " + testCase +
                     (division == 0 ? "" : " division " + division));
