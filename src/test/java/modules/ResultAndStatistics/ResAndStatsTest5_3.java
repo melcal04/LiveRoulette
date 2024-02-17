@@ -12,7 +12,8 @@ import utilities.settings.Constants;
 public class ResAndStatsTest5_3 extends ResAndStats implements ResAndStatsCase {
 
     public static final int testCase = 5, division = 3;
-    private double oldBlackPercentage = 0.0, blackPercentage = 0.0;
+    private double oldBlackPercentage = 0.0, actualBlackPercentage = 0.0, expectedBlackPercentage = 0.0;
+    private static int size;
 
     public int getTestCase() { return testCase; }
 
@@ -23,28 +24,27 @@ public class ResAndStatsTest5_3 extends ResAndStats implements ResAndStatsCase {
     }
 
     public void setStatistics() {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
-        if (!DataTypeHandler.findInArray(division, divisionList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(division, divisionList)) return;
 
-        oldBlackPercentage = blackPercentage;
-        blackPercentage = getPercentage(Statistics.Label.BlackPercentage);
+        size = getSize(Statistics.Container.BlackResults);
+        expectedBlackPercentage = Math.round(((float) size / totalResultHistory) * 100);
+        oldBlackPercentage = actualBlackPercentage;
+        actualBlackPercentage = getPercentage(Statistics.Label.BlackPercentage);
     }
 
     public void saveTestCase(String[] roundResult) {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
-        if (!DataTypeHandler.findInArray(division, divisionList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(division, divisionList)) return;
         if (!RoundCondition.isBlackWin(roundResult)) return;
-        if (oldBlackPercentage == blackPercentage) return;
 
         String currentRoundResult = DataTypeHandler.toString(roundResult);
         String oldResult = Double.toString(oldBlackPercentage);
-        String expectedResult = "Black Percentage Must Increase";
-        String actualResult = Double.toString(blackPercentage);
+        String expectedResult = Double.toString(expectedBlackPercentage);
+        String actualResult = Double.toString(actualBlackPercentage);
 
-        System.out.println("    - " + expectedResult + ": " + oldResult + " --> " + actualResult);
-        ResultHandler.setTestResult(testCase, division, currentRoundResult, expectedResult, actualResult, tableInfo, oldResult);
+        ResultHandler.setTestResult(testCase, division, currentRoundResult, expectedResult, actualResult, (tableInfo + " " + totalResultHistory + " " + size), oldResult);
         divisionList = DataTypeHandler.removeFromArray(division, divisionList);
-
         if (divisionList.length != 0) return;
         testCaseList = DataTypeHandler.removeFromArray(testCase, testCaseList);
     }
@@ -61,9 +61,9 @@ public class ResAndStatsTest5_3 extends ResAndStats implements ResAndStatsCase {
         System.out.println("Expected Result: " + result.getExpectedResult());
 
         String message = "Actual Result: " + result.getOtherInfo() + " --> " + result.getActualResult();
+        double expectedPercentage = Double.parseDouble(result.getExpectedResult());
         double actualPercentage = Double.parseDouble(result.getActualResult());
-        double oldPercentage = Double.parseDouble(result.getOtherInfo());
-        AssertHandler.assertTrue(actualPercentage > oldPercentage, message, message);
+        AssertHandler.assertEquals(expectedPercentage, actualPercentage, message, message);
 
         System.out.println();
     }

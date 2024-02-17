@@ -107,4 +107,14 @@ public class TestMethod {
         return GetHandler.getDouble(DealerTable.Label.BalanceValue);
     }
 
+    /***************************************************************************************************************
+     * The 'getSize' method is used to retrieve the number of elements found.
+     ***************************************************************************************************************/
+
+    public static int getSize(Component component) {
+        if (ConditionHandler.isEmpty(component)) return 0;
+        List<WebElement> elements = GetHandler.getElements(component);
+        return elements.size();
+    }
+
 }

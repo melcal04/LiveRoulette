@@ -34,7 +34,7 @@ public class FuncTest27 extends Functionality {
                 "** Other Chips is Not Displayed on Chips Selections");
 
         for (String chip : defaultChips) {
-            AssertHandler.assertFalse(DataTypeHandler.findInArray(chip, selectionChips),
+            AssertHandler.assertFalse(DataTypeHandler.find(chip, selectionChips),
                     "** " + chip + " Chip is Not Displayed The Other Chips",
                     "** " + chip + " Chip is Displayed The Other Chips");
         }

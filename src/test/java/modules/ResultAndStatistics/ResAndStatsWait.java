@@ -90,16 +90,22 @@ public class ResAndStatsWait extends ResAndStats {
     }
 
     private static void setAfterDealing() {
+        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
         setResAndStats();
         processResAndStatsCases(resAndStatsCase -> resAndStatsCase.saveTestCase(roundResult));
     }
 
     private static void setResAndStats() {
         processResAndStatsCases(ResAndStatsCase::setResult);
+
         EventHandler.click(DealerTable.Button.Statistics);
+
+        WaitHandler.wait(4);
+        totalResultHistory = getSize(Statistics.Container.AllResults);
         processResAndStatsCases(ResAndStatsCase::setStatistics);
         String fileName = tableInfo + " " + DataTypeHandler.toString(roundResult);
         FileHandler.Image.capture(fileName, "statistics", false);
+
         EventHandler.click(Statistics.Button.CloseStatistics);
     }
 

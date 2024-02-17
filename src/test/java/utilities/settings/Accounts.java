@@ -56,13 +56,13 @@ public class Accounts {
 
     private static class Production {
         public static final String MOBILE_URL = "https://play.sbobet.com/";
-        public static final String USERNAME = "zwdplayer06";
-        public static final String PASSWORD = "asdf1234*";
+        public static final String USERNAME = "idrauto02";
+        public static final String PASSWORD = "asdf1234**";
     }
 
     private static class UAT {
         public static final String MOBILE_URL = "https://play.sbotest.com/";
-        public static final String USERNAME = "zwdplayer01";
+        public static final String USERNAME = "idrauto02";
         public static final String PASSWORD = "asdf1234**";
     }
 

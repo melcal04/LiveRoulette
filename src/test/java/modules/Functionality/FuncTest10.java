@@ -17,7 +17,7 @@ public class FuncTest10 extends Functionality {
         System.out.println("Actual Results: ");
 
         String[] roundIds = GetHandler.getTextArray(MyBets.Label.RoundId, HandleCollection.WithScroll);
-        AssertHandler.assertTrue(DataTypeHandler.containInArray(roundId, roundIds),
+        AssertHandler.assertTrue(DataTypeHandler.contains(roundId, roundIds),
                 "** Settled Round is Displayed: #" + roundId,
                 "** Settled Round is Not Displayed: #" + roundId);
 

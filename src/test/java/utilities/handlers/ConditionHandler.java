@@ -1,5 +1,6 @@
 package utilities.handlers;
 
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import utilities.objects.Component;
 import utilities.settings.Variables;
@@ -25,8 +26,8 @@ public class ConditionHandler extends Variables {
     @SuppressWarnings("unused")
     public static boolean isDisplayed(Component component) {
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(component.getPath()));
-            return driver.findElement(component.getPath()).isDisplayed();
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(component.getPath()));
+            return element.isDisplayed();
         } catch (Exception e) { return false; }
     }
 
@@ -36,18 +37,17 @@ public class ConditionHandler extends Variables {
 
     @SuppressWarnings("unused")
     public static boolean isEmpty(Component component) {
-        try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(component.getPath()));
-            return driver.findElements(component.getPath()).isEmpty();
-        } catch (Exception e) { return false; }
+        try { wait.until(ExpectedConditions.presenceOfElementLocated(component.getPath())); }
+        catch (Exception e) { return true; }
+        return driver.findElements(component.getPath()).isEmpty();
     }
 
     /***************************************************************************************************************
-     * The 'isEmpty' method checks if the element is present.
+     * The 'isPresence' method checks if the element is present.
      ***************************************************************************************************************/
 
     @SuppressWarnings("unused")
-    public static boolean isPresence(Component component) {
+    public static boolean isPresent(Component component) {
         try {
             wait.until(ExpectedConditions.presenceOfElementLocated(component.getPath()));
             return true;
@@ -55,14 +55,14 @@ public class ConditionHandler extends Variables {
     }
 
     /***************************************************************************************************************
-     * The 'isEmpty' method checks if the element is selected.
+     * The 'isSelected' method checks if the element is selected.
      ***************************************************************************************************************/
 
     @SuppressWarnings("unused")
     public static boolean isSelected(Component component) {
         try {
-            wait.until(ExpectedConditions.visibilityOfElementLocated(component.getPath()));
-            return driver.findElement(component.getPath()).isSelected();
+            WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(component.getPath()));
+            return element.isSelected();
         } catch (Exception e) { return false; }
     }
 

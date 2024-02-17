@@ -25,7 +25,7 @@ public class ResAndStatsTest1 extends ResAndStats implements ResAndStatsCase {
     public int getDivision() { return 0; }
 
     public void setResult() {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
         if (!Objects.equals(oldResult, "")) return;
 
         expectedResultList = getResultList();
@@ -37,7 +37,7 @@ public class ResAndStatsTest1 extends ResAndStats implements ResAndStatsCase {
     }
 
     public void saveTestCase(String[] roundResult) {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
 
         if (counter <= 1) {
             expectedResultList = getNewResultList(Integer.parseInt(roundResult[0]), expectedResultList);

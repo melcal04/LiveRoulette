@@ -15,21 +15,21 @@ public class PayoutTest14 extends Payout implements PayoutCase {
     public int getTestCase() { return testCase; }
 
     public void setBetOption() {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
 
         for (byte i = 0; i < betOption; i++)
             EventHandler.click(DealerTable.BettingOption.getNumber(i));
     }
 
     public void getBetOption() {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
 
         for (byte i = 0; i < betOption; i++)
             chipValueList[i] = getChipValue(DealerTable.BettingChip.getNumber(i));
     }
 
     public void computeTestCase(String[] roundResult) {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
 
         bet = chipValueList[Integer.parseInt(roundResult[0])];
         payout = bet + (bet * payoutOdds);
@@ -37,7 +37,7 @@ public class PayoutTest14 extends Payout implements PayoutCase {
     }
 
     public void saveTestCase(String[] roundResult) {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
 
         String currentRoundResult = DataTypeHandler.toString(roundResult);
         String expectedResult = getExpectedResult();

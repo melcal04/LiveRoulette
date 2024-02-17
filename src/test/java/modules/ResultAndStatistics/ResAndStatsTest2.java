@@ -25,7 +25,7 @@ public class ResAndStatsTest2 extends ResAndStats implements ResAndStatsCase {
     }
 
     public void saveTestCase(String[] roundResult) {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
         if (!RoundCondition.isRedWin(roundResult)) return;
 
         String[] currentNumberInResultPanel = getFirstNumberInResultPanel();

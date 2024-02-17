@@ -40,17 +40,17 @@ public class FuncTest28 {
             System.out.println("Test Case: 28");
             System.out.println("Actual Results: ");
 
-            AssertHandler.assertFalse(DataTypeHandler.findInArray(removedChip, removedChips),
+            AssertHandler.assertFalse(DataTypeHandler.find(removedChip, removedChips),
                     "** Selected Chips is Removed: " + removedChip,
                     "** Selected Chips is Not Removed: " + removedChip);
 
         } else {
 
-            AssertHandler.assertTrue(DataTypeHandler.findInArray(removedChip, selectionChips),
+            AssertHandler.assertTrue(DataTypeHandler.find(removedChip, selectionChips),
                     "** Removed Chips is Transferred to Chip Selections",
                     "** Removed Chips is Not Transferred to Chip Selections");
 
-            AssertHandler.assertTrue(DataTypeHandler.findInArray(addedChip, addedChips),
+            AssertHandler.assertTrue(DataTypeHandler.find(addedChip, addedChips),
                     "** Selected Chip is Added to My Chips: " + addedChip,
                     "** Selected Chip is Not Added to My Chips: " + addedChip);
 

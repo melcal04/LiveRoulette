@@ -32,6 +32,7 @@ public class Navigation {
             if (ConditionHandler.isUrlContains("/roulette")) {
                 EventHandler.click(DealerTable.Button.SkipWelcome, HandleCollection.WithException);
                 EventHandler.click(DealerTable.Button.Back, HandleCollection.WithException);
+                WaitHandler.waitUrlContains("/dealerPage", 5);
                 EventHandler.click(GameLobby.Button.Back, HandleCollection.WithException);
             }
             WaitHandler.waitUrlContains("/CasinoMobile", 5);
@@ -61,6 +62,12 @@ public class Navigation {
         };
         Printer printer = PrintHandler::printWarning;
         retrySteps(navigator, printer, "Enter The Dealer Table.");
+    }
+
+    @When("I Check The Round Result")
+    public void iCheckTheRoundResult() {
+        Accounts.setEnvironment(Environment.PRODUCTION);
+        NavigationHandler.goTo(Accounts.getMobileUrl());
     }
 
     private void retrySteps(Navigator navigator, Printer printer, String description) {

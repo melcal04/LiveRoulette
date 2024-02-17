@@ -12,7 +12,8 @@ import utilities.settings.Constants;
 public class ResAndStatsTest5_10 extends ResAndStats implements ResAndStatsCase {
 
     public static final int testCase = 5, division = 10;
-    private double oldThirdDozenPercentage = 0.0, thirdDozenPercentage = 0.0;
+    private double oldThirdDozenPercentage = 0.0, actualThirdDozenPercentage = 0.0, expectedThirdDozenPercentage = 0.0;
+    private static int size;
 
     public int getTestCase() { return testCase; }
 
@@ -23,28 +24,27 @@ public class ResAndStatsTest5_10 extends ResAndStats implements ResAndStatsCase 
     }
 
     public void setStatistics() {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
-        if (!DataTypeHandler.findInArray(division, divisionList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(division, divisionList)) return;
 
-        oldThirdDozenPercentage = thirdDozenPercentage;
-        thirdDozenPercentage = getPercentage(Statistics.Label.ThirdDozenPercentage);
+        size = getSize(Statistics.Container.ThirdDozenResults);
+        expectedThirdDozenPercentage = Math.round(((float) size / totalResultHistory) * 100);
+        oldThirdDozenPercentage = actualThirdDozenPercentage;
+        actualThirdDozenPercentage = getPercentage(Statistics.Label.ThirdDozenPercentage);
     }
 
     public void saveTestCase(String[] roundResult) {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
-        if (!DataTypeHandler.findInArray(division, divisionList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(division, divisionList)) return;
         if (!RoundCondition.isThirdDozenWin(roundResult)) return;
-        if (oldThirdDozenPercentage == thirdDozenPercentage) return;
 
         String currentRoundResult = DataTypeHandler.toString(roundResult);
         String oldResult = Double.toString(oldThirdDozenPercentage);
-        String expectedResult = "3rd Dozen Percentage Must Increase";
-        String actualResult = Double.toString(thirdDozenPercentage);
+        String expectedResult = Double.toString(expectedThirdDozenPercentage);
+        String actualResult = Double.toString(actualThirdDozenPercentage);
 
-        System.out.println("    - " + expectedResult + ": " + oldResult + " --> " + actualResult);
-        ResultHandler.setTestResult(testCase, division, currentRoundResult, expectedResult, actualResult, tableInfo, oldResult);
+        ResultHandler.setTestResult(testCase, division, currentRoundResult, expectedResult, actualResult, (tableInfo + " " + totalResultHistory + " " + size), oldResult);
         divisionList = DataTypeHandler.removeFromArray(division, divisionList);
-
         if (divisionList.length != 0) return;
         testCaseList = DataTypeHandler.removeFromArray(testCase, testCaseList);
     }
@@ -61,9 +61,9 @@ public class ResAndStatsTest5_10 extends ResAndStats implements ResAndStatsCase 
         System.out.println("Expected Result: " + result.getExpectedResult());
 
         String message = "Actual Result: " + result.getOtherInfo() + " --> " + result.getActualResult();
+        double expectedPercentage = Double.parseDouble(result.getExpectedResult());
         double actualPercentage = Double.parseDouble(result.getActualResult());
-        double oldPercentage = Double.parseDouble(result.getOtherInfo());
-        AssertHandler.assertTrue(actualPercentage > oldPercentage, message, message);
+        AssertHandler.assertEquals(expectedPercentage, actualPercentage, message, message);
 
         System.out.println();
     }

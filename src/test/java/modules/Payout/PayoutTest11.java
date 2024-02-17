@@ -16,19 +16,19 @@ public class PayoutTest11 extends Payout implements PayoutCase {
     public int getTestCase() { return testCase; }
 
     public void setBetOption() {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
 
         EventHandler.click(DealerTable.BettingOption.getColumn(betOption));
     }
 
     public void getBetOption() {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
 
         bet = getChipValue(DealerTable.BettingChip.getColumn(betOption));
     }
 
     public void computeTestCase(String[] roundResult) {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
         if (!RoundCondition.isFirstColumnWin(roundResult)) return;
 
         payout = bet + (bet * payoutOdds);
@@ -36,7 +36,7 @@ public class PayoutTest11 extends Payout implements PayoutCase {
     }
 
     public void saveTestCase(String[] roundResult) {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
         if (!RoundCondition.isFirstColumnWin(roundResult)) return;
 
         String currentRoundResult = DataTypeHandler.toString(roundResult);

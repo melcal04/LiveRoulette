@@ -12,7 +12,8 @@ import utilities.settings.Constants;
 public class ResAndStatsTest5_6 extends ResAndStats implements ResAndStatsCase {
 
     public static final int testCase = 5, division = 6;
-    private double oldHighPercentage = 0.0, highPercentage = 0.0;
+    private double oldHighPercentage = 0.0, actualHighPercentage = 0.0, expectedHighPercentage = 0.0;
+    private static int size;
 
     public int getTestCase() { return testCase; }
 
@@ -23,28 +24,27 @@ public class ResAndStatsTest5_6 extends ResAndStats implements ResAndStatsCase {
     }
 
     public void setStatistics() {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
-        if (!DataTypeHandler.findInArray(division, divisionList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(division, divisionList)) return;
 
-        oldHighPercentage = highPercentage;
-        highPercentage = getPercentage(Statistics.Label.HighPercentage);
+        size = getSize(Statistics.Container.HighResults);
+        expectedHighPercentage = Math.round(((float) size / totalResultHistory) * 100);
+        oldHighPercentage = actualHighPercentage;
+        actualHighPercentage = getPercentage(Statistics.Label.HighPercentage);
     }
 
     public void saveTestCase(String[] roundResult) {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
-        if (!DataTypeHandler.findInArray(division, divisionList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(division, divisionList)) return;
         if (!RoundCondition.isHighWin(roundResult)) return;
-        if (oldHighPercentage == highPercentage) return;
 
         String currentRoundResult = DataTypeHandler.toString(roundResult);
         String oldResult = Double.toString(oldHighPercentage);
-        String expectedResult = "High Percentage Must Increase";
-        String actualResult = Double.toString(highPercentage);
+        String expectedResult = Double.toString(expectedHighPercentage);
+        String actualResult = Double.toString(actualHighPercentage);
 
-        System.out.println("    - " + expectedResult + ": " + oldResult + " --> " + actualResult);
-        ResultHandler.setTestResult(testCase, division, currentRoundResult, expectedResult, actualResult, tableInfo, oldResult);
+        ResultHandler.setTestResult(testCase, division, currentRoundResult, expectedResult, actualResult, (tableInfo + " " + totalResultHistory + " " + size), oldResult);
         divisionList = DataTypeHandler.removeFromArray(division, divisionList);
-
         if (divisionList.length != 0) return;
         testCaseList = DataTypeHandler.removeFromArray(testCase, testCaseList);
     }
@@ -61,9 +61,9 @@ public class ResAndStatsTest5_6 extends ResAndStats implements ResAndStatsCase {
         System.out.println("Expected Result: " + result.getExpectedResult());
 
         String message = "Actual Result: " + result.getOtherInfo() + " --> " + result.getActualResult();
+        double expectedPercentage = Double.parseDouble(result.getExpectedResult());
         double actualPercentage = Double.parseDouble(result.getActualResult());
-        double oldPercentage = Double.parseDouble(result.getOtherInfo());
-        AssertHandler.assertTrue(actualPercentage > oldPercentage, message, message);
+        AssertHandler.assertEquals(expectedPercentage, actualPercentage, message, message);
 
         System.out.println();
     }

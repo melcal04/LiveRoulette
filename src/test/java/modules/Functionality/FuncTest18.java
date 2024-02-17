@@ -21,7 +21,7 @@ public class FuncTest18 extends Functionality {
                 "** Default Product " + actualActiveGame + " is Not Highlighted");
 
         String[] inactiveGames = GetHandler.getTextArray(SwitchTable.Label.InactiveGameNames);
-        AssertHandler.assertFalse(DataTypeHandler.containInArray("Roulette", inactiveGames) &&
+        AssertHandler.assertFalse(DataTypeHandler.contains("Roulette", inactiveGames) &&
                         ConditionHandler.isDisplayed(SwitchTable.Label.InactiveGameNames),
                 "** Other Live Products are Displayed and Correct",
                 "** Other Live Products are Not Displayed or Incorrect");

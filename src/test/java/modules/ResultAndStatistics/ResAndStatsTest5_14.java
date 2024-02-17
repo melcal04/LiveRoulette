@@ -14,7 +14,8 @@ import java.util.Arrays;
 public class ResAndStatsTest5_14 extends ResAndStats implements ResAndStatsCase {
 
     public static final int testCase = 5, division = 14;
-    private int[] oldHotNumberList = new int[5], oldHotCounterList = new int[5], hotNumberList = new int[5], hotCounterList = new int[5];
+    private int[] oldHotNumberList = new int[5], oldHotCounterList = new int[5], hotNumberList = new int[5], actualHotCounterList = new int[5];
+    private final int[] expectedHotCounterList = new int[5];
 
     public int getTestCase() { return testCase; }
 
@@ -25,29 +26,29 @@ public class ResAndStatsTest5_14 extends ResAndStats implements ResAndStatsCase 
     }
 
     public void setStatistics() {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
-        if (!DataTypeHandler.findInArray(division, divisionList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(division, divisionList)) return;
 
         oldHotNumberList = Arrays.copyOf(hotNumberList, hotNumberList.length);
-        oldHotCounterList = Arrays.copyOf(hotCounterList, hotCounterList.length);
+        oldHotCounterList = Arrays.copyOf(actualHotCounterList, actualHotCounterList.length);
         hotNumberList = GetHandler.getIntArray(Statistics.Label.HotNumbers);
-        hotCounterList = GetHandler.getIntArray(Statistics.Label.HotCounters);
+        actualHotCounterList = GetHandler.getIntArray(Statistics.Label.HotCounters);
+        for (int i = 0; i < hotNumberList.length; i++)
+            expectedHotCounterList[i] = getSize(Statistics.Method.getHotResults(hotNumberList[i]));
     }
 
     public void saveTestCase(String[] roundResult) {
-        if (!DataTypeHandler.findInArray(testCase, testCaseList)) return;
-        if (!DataTypeHandler.findInArray(division, divisionList)) return;
-        if (!DataTypeHandler.findInArray(Integer.parseInt(roundResult[0]), oldHotNumberList)) return;
+        if (!DataTypeHandler.find(testCase, testCaseList)) return;
+        if (!DataTypeHandler.find(division, divisionList)) return;
+        if (!DataTypeHandler.find(Integer.parseInt(roundResult[0]), oldHotNumberList)) return;
 
         String currentRoundResult = DataTypeHandler.toString(roundResult);
         String oldResult = getResultFromArray(oldHotNumberList, oldHotCounterList);
-        String expectedResult = "The Counter of Number Result in Hot Numbers Must Increase";
-        String actualResult = getResultFromArray(hotNumberList, hotCounterList);
+        String expectedResult = getResultFromArray(hotNumberList, expectedHotCounterList);
+        String actualResult = getResultFromArray(hotNumberList, actualHotCounterList);
 
-        System.out.println("    - " + expectedResult + ": " + oldResult + " --> " + actualResult);
         ResultHandler.setTestResult(testCase, division, currentRoundResult, expectedResult, actualResult, tableInfo, oldResult);
         divisionList = DataTypeHandler.removeFromArray(division, divisionList);
-
         if (divisionList.length != 0) return;
         testCaseList = DataTypeHandler.removeFromArray(testCase, testCaseList);
     }
@@ -64,17 +65,20 @@ public class ResAndStatsTest5_14 extends ResAndStats implements ResAndStatsCase 
         System.out.println("Expected Result: " + result.getExpectedResult());
 
         String message = "Actual Result: " + result.getOtherInfo() + " --> " + result.getActualResult();
+
         int[][] actualResult = Arrays.copyOf(getArrayFromResult(result.getActualResult()), getArrayFromResult(result.getActualResult()).length);
         int[] actualNumberResultList = actualResult[0];
         int[] actualCounterResultList = actualResult[1];
-        int[][] oldResult = Arrays.copyOf(getArrayFromResult(result.getOtherInfo()), getArrayFromResult(result.getOtherInfo()).length);
-        int[] oldNumberResultList = oldResult[0];
-        int[] oldCounterResultList = oldResult[1];
-        int numberResult = Integer.parseInt(result.getRoundResult().split(" ")[0]);
 
+        int[][] expectedResult = Arrays.copyOf(getArrayFromResult(result.getExpectedResult()), getArrayFromResult(result.getExpectedResult()).length);
+        int[] expectedNumberResultList = expectedResult[0];
+        int[] expectedCounterResultList = expectedResult[1];
+
+        int numberResult = Integer.parseInt(result.getRoundResult().split(" ")[0]);
         int actualIndex = DataTypeHandler.getIndex(numberResult, actualNumberResultList);
-        int oldIndex = DataTypeHandler.getIndex(numberResult, oldNumberResultList);
-        AssertHandler.assertTrue(actualCounterResultList[actualIndex] > oldCounterResultList[oldIndex], message, message);
+        int expectedIndex = DataTypeHandler.getIndex(numberResult, expectedNumberResultList);
+
+        AssertHandler.assertEquals(expectedCounterResultList[expectedIndex], actualCounterResultList[actualIndex], message, message);
 
         System.out.println();
     }

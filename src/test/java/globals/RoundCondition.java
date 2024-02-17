@@ -18,14 +18,14 @@ public class RoundCondition {
     public static boolean isPosBetWin(String[] result, int[][] bettingOption) {
         int[] bettingOptions = bettingOption[1];
         int numberResult = Integer.parseInt(result[0]);
-        return DataTypeHandler.findInArray(numberResult, bettingOptions);
+        return DataTypeHandler.find(numberResult, bettingOptions);
     }
 
     public static boolean isPosBetLose(String[] result, int[][][] bettingOptionList) {
         int numberResult = Integer.parseInt(result[0]);
         for (int[][] bettingOption : bettingOptionList) {
             int[] bettingResult = bettingOption[1];
-            if (DataTypeHandler.findInArray(numberResult, bettingResult)) return false;
+            if (DataTypeHandler.find(numberResult, bettingResult)) return false;
         }
         return true;
     }
@@ -82,17 +82,17 @@ public class RoundCondition {
 
     public static boolean isFirstColumnWin(String[] result) {
         int numberResult = Integer.parseInt(result[0]);
-        return DataTypeHandler.findInArray(numberResult, BettingOption.FIRST_COLUMN_NUMBERS);
+        return DataTypeHandler.find(numberResult, BettingOption.FIRST_COLUMN_NUMBERS);
     }
 
     public static boolean isSecondColumnWin(String[] result) {
         int number = Integer.parseInt(result[0]);
-        return DataTypeHandler.findInArray(number, BettingOption.SECOND_COLUMN_NUMBERS);
+        return DataTypeHandler.find(number, BettingOption.SECOND_COLUMN_NUMBERS);
     }
 
     public static boolean isThirdColumnWin(String[] result) {
         int number = Integer.parseInt(result[0]);
-        return DataTypeHandler.findInArray(number, BettingOption.THIRD_COLUMN_NUMBERS);
+        return DataTypeHandler.find(number, BettingOption.THIRD_COLUMN_NUMBERS);
     }
 
 }

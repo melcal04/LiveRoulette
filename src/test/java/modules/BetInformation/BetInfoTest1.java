@@ -13,10 +13,14 @@ public class BetInfoTest1 extends BetInformation {
     static String betOption = BettingOption.BLACK;
 
     public static void placeBetUntilWin() {
+        boolean isError = true;
         do {
-            placeBet(betOption);
-            waitRoundResult();
-        } while (!RoundCondition.isBlackWin(roundResult));
+            try {
+                placeBet(betOption);
+                waitRoundResult();
+                isError = false;
+            } catch (Exception e) { PrintHandler.printError("Failed to place a bet"); }
+        } while (isError || !RoundCondition.isBlackWin(roundResult));
     }
 
     public static void verify() {

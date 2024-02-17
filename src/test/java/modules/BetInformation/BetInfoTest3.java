@@ -16,19 +16,25 @@ public class BetInfoTest3 extends BetInformation {
             streetBet = BettingOption.STREET_LIST[1];
 
     public static void placeBet() {
-        waitBettingPhase(30, false);
-        WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
-        EventHandler.click(DealerTable.BettingOption.getNumber(numberBet));
-        EventHandler.click(DealerTable.BettingOption.getSixLine(sixLineBet));
-        EventHandler.click(DealerTable.BettingOption.getSplit(splitBet));
-        EventHandler.click(DealerTable.BettingOption.getStreet(streetBet));
-        EventHandler.click(DealerTable.BettingOption.getSideBet(colorBet));
-        EventHandler.click(DealerTable.BettingOption.getSideBet(evenBet));
-        EventHandler.click(DealerTable.BettingOption.getSideBet(highBet));
-        EventHandler.click(DealerTable.BettingOption.getSideBet(dozenBet));
-        EventHandler.click(DealerTable.BettingOption.getColumn(columnBet));
-        EventHandler.click(DealerTable.Button.Confirm);
-        waitRoundResult();
+        boolean isError = true;
+        do {
+            try {
+                waitBettingPhase(30, false);
+                WaitHandler.waitInvisibility(DealerTable.Label.PlaceYourBetsPlease, 150);
+                EventHandler.click(DealerTable.BettingOption.getNumber(numberBet));
+                EventHandler.click(DealerTable.BettingOption.getSixLine(sixLineBet));
+                EventHandler.click(DealerTable.BettingOption.getSplit(splitBet));
+                EventHandler.click(DealerTable.BettingOption.getStreet(streetBet));
+                EventHandler.click(DealerTable.BettingOption.getSideBet(colorBet));
+                EventHandler.click(DealerTable.BettingOption.getSideBet(evenBet));
+                EventHandler.click(DealerTable.BettingOption.getSideBet(highBet));
+                EventHandler.click(DealerTable.BettingOption.getSideBet(dozenBet));
+                EventHandler.click(DealerTable.BettingOption.getColumn(columnBet));
+                EventHandler.click(DealerTable.Button.Confirm);
+                waitRoundResult();
+                isError = false;
+            } catch (Exception e) { PrintHandler.printError("Failed to place a bet"); }
+        } while (isError);
     }
 
     public static void verify() {
