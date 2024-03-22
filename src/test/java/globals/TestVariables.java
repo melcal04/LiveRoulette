@@ -2,9 +2,9 @@ package globals;
 
 public class TestVariables {
 
-    /***************************************************************************************************************
-     * These constants are used to find specific betting options in the Live Roulette Mobile Revamp.
-     ***************************************************************************************************************/
+    /*********************************************************************************************************************
+     ** These constants and variables are used to find specific betting options in the Live Roulette Mobile Revamp.
+     *********************************************************************************************************************/
 
     public static final String RED = "red", BLACK = "black", EVEN = "even", ODD = "odd", LOW = "1to18", HIGH = "19to36";
     public static final String[] SIDE_LIST = { RED, BLACK, EVEN, ODD, LOW, HIGH };

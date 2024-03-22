@@ -102,6 +102,18 @@ public class EventHandler extends AutomationSetup {
                     throw e;
                 }
                 break;
+            case WithJavaScript:
+                try {
+                    WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator.getPath()));
+                    jsExecutor.executeScript("arguments[0].click();", element);
+                } catch (Exception e) {
+                    String name = locator.getName();
+                    String type = locator.getType();
+                    String page = locator.getPage();
+                    Printer.printError("Failed to click \"" + name + "\" " + type + " on " + page + " with JavaScript");
+                    throw e;
+                }
+                break;
         }
     }
 
@@ -156,6 +168,15 @@ public class EventHandler extends AutomationSetup {
                     wait.until(ExpectedConditions.elementToBeClickable(element)).click();
                 } catch (Exception e) {
                     Printer.printError("Failed to click \"" + element.getText() + "\" web element with scroll");
+                    throw e;
+                }
+                break;
+            case WithJavaScript:
+                try {
+                    wait.until(ExpectedConditions.elementToBeClickable(element));
+                    jsExecutor.executeScript("arguments[0].click();", element);
+                } catch (Exception e) {
+                    Printer.printError("Failed to click \"" + element.getText() + "\" web element with JavaScript");
                     throw e;
                 }
                 break;

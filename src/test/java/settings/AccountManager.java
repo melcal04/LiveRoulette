@@ -63,7 +63,7 @@ public class AccountManager {
 
     private static class Production {
         public static final String URL = "https://play.sbobet.com/";
-        public static final String USERNAME = "idrauto02";
+        public static final String USERNAME = "testidrmaag032";
         public static final String PASSWORD = "asdf1234**";
     }
 

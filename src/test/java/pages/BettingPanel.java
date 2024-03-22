@@ -52,7 +52,7 @@ public class BettingPanel {
                             " col_bet_option_2to1_" + column + "')]"
             );
         }
-        public static Locator getNumber(int number) {
+        public static Locator getStraightUp(int number) {
             return new Locator(
                     "Straight Up #" + number + " Betting Option",
                     "Button",
@@ -178,7 +178,7 @@ public class BettingPanel {
                             " col_bet_option_2to1_" + column + "')]" + chipPath
             );
         }
-        public static Locator getNumber(int number) {
+        public static Locator getStraightUp(int number) {
             return new Locator(
                     "Straight Up #" + number + " Betting Chip",
                     "Button",
