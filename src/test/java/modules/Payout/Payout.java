@@ -82,8 +82,7 @@ public class Payout extends TestMethods {
     }
 
     protected static void addWin(String bettingOption, double chipValue, double payoutOdds) {
-        System.out.println("    " + bettingOption + " Bet " + chipValue +
-                " & Payout Odds: " + payoutOdds);
+        System.out.println("    Bet in " + bettingOption + ": " + chipValue);
         totalWinBet += chipValue;
         totalWinResult += (chipValue * payoutOdds);
     }
