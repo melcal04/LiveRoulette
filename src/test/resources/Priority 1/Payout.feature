@@ -7,6 +7,7 @@ Feature: Payout
     When I Join Live Roulette Mobile Revamp
     And I Enter The Dealer Table
     Then I Place A Bet Until There Is A Round Result For All Payouts
+    # ** Payout Round Results
       | Red          |
       | Black        |
       | Even         |
@@ -26,6 +27,27 @@ Feature: Payout
       | Six Line     |
       | Zero Section |
       | Zero Corner  |
+    # ** Result And Statistics Displayed Results
+      | Result Panel          |
+      | Red Result            |
+      | Black Result          |
+      | Zero Result           |
+      | Red Percentage        |
+      | Zero Percentage       |
+      | Black Percentage      |
+      | Odd Percentage        |
+      | Even Percentage       |
+      | High Percentage       |
+      | Low Percentage        |
+      | 1st Dozen Percentage  |
+      | 2nd Dozen Percentage  |
+      | 3rd Dozen Percentage  |
+      | 1st Column Percentage |
+      | 2nd Column Percentage |
+      | 3rd Column Percentage |
+      | Hot Numbers Win       |
+      | Cold Numbers Lose     |
+      | Cold Numbers Win      |
 
   @PayoutTest1
   Scenario: PO Test 1: Checking The Payout Calculation Of Red Betting Option

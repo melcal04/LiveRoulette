@@ -40,9 +40,9 @@ public class TestConditions {
         return Objects.equals(colorResult, "BLACK");
     }
 
-    public static boolean isZeroLose(String[] result) {
+    public static boolean isZeroWin(String[] result) {
         int numberResult = Integer.parseInt(result[0]);
-        return numberResult != 0;
+        return numberResult == 0;
     }
 
     public static boolean isEvenWin(String[] result) {

@@ -4,18 +4,24 @@ import globals.TestMethods;
 import pages.DealerTable;
 import utilities.features.ScreenshotFeature;
 import utilities.features.TextFileFeature;
+import utilities.handlers.EventHandler;
 import utilities.handlers.GetHandler;
 import utilities.interfaces.PayoutTestCase;
 import utilities.objects.CustomAssert;
 import utilities.objects.Helper;
+import utilities.objects.Printer;
 import utilities.objects.TestResult;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
+import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
 public class Payout extends TestMethods {
+
+    private static List<PayoutTestCase> payoutTestCaseList;
+    private static List<PayoutTestCase> ignoredPayoutTestCase;
 
     protected static String tableInfo;
     protected static double totalWinBet, totalWinResult, totalBet, balanceBeforeBetting, balanceAfterBetting, balanceAfterDealing;
@@ -23,62 +29,99 @@ public class Payout extends TestMethods {
             is1stDozenPlaced, is2ndDozenPlaced, is3rdDozenPlaced, is1stColumnPlaced, is2ndColumnPlaced, is3rdColumnPlaced,
             isStraightUpPlaced, isSplitPlaced, isStreetPlaced, isCornerPlaced, isSixLinePlaced, isZeroSectionPlaced, isZeroCornerPlaced;
 
-    public static List<PayoutTestCase> getPayoutTestCaseFirstBatch(List<String> roundResults) {
-        List<PayoutTestCase> payoutCases = new ArrayList<>();
+    public static void init(List<String> roundResults) {
+        payoutTestCaseList = new ArrayList<>();
         for (String roundResult : roundResults) {
             switch (roundResult) {
-                case "Red" -> payoutCases.add(new PayoutTest1());
-                case "Black" -> payoutCases.add(new PayoutTest2());
-                case "Even" -> payoutCases.add(new PayoutTest3());
-                case "Odd" -> payoutCases.add(new PayoutTest4());
-                case "Low" -> payoutCases.add(new PayoutTest5());
-                case "High" -> payoutCases.add(new PayoutTest6());
-                case "1st Dozen" -> payoutCases.add(new PayoutTest7());
-                case "2nd Dozen" -> payoutCases.add(new PayoutTest8());
-                case "3rd Dozen" -> payoutCases.add(new PayoutTest9());
-                case "1st Column" -> payoutCases.add(new PayoutTest10());
-                case "2nd Column" -> payoutCases.add(new PayoutTest11());
-                case "3rd Column" -> payoutCases.add(new PayoutTest12());
-                case "Straight Up" -> payoutCases.add(new PayoutTest13());
-                case "Split" -> payoutCases.add(new PayoutTest14());
-                case "Street" -> payoutCases.add(new PayoutTest15());
-                case "Corner" -> payoutCases.add(new PayoutTest16());
-                case "Six Line" -> payoutCases.add(new PayoutTest17());
-                case "Zero Section" -> payoutCases.add(new PayoutTest18());
-                case "Zero Corner" -> payoutCases.add(new PayoutTest19());
+                case "Red" -> payoutTestCaseList.add(new PayoutTest1());
+                case "Black" -> payoutTestCaseList.add(new PayoutTest2());
+                case "Even" -> payoutTestCaseList.add(new PayoutTest3());
+                case "Odd" -> payoutTestCaseList.add(new PayoutTest4());
+                case "Low" -> payoutTestCaseList.add(new PayoutTest5());
+                case "High" -> payoutTestCaseList.add(new PayoutTest6());
+                case "1st Dozen" -> payoutTestCaseList.add(new PayoutTest7());
+                case "2nd Dozen" -> payoutTestCaseList.add(new PayoutTest8());
+                case "3rd Dozen" -> payoutTestCaseList.add(new PayoutTest9());
+                case "1st Column" -> payoutTestCaseList.add(new PayoutTest10());
+                case "2nd Column" -> payoutTestCaseList.add(new PayoutTest11());
+                case "3rd Column" -> payoutTestCaseList.add(new PayoutTest12());
+                case "Straight Up" -> payoutTestCaseList.add(new PayoutTest13());
+                case "Split" -> payoutTestCaseList.add(new PayoutTest14());
+                case "Street" -> payoutTestCaseList.add(new PayoutTest15());
+                case "Corner" -> payoutTestCaseList.add(new PayoutTest16());
+                case "Six Line" -> payoutTestCaseList.add(new PayoutTest17());
+                case "Zero Section" -> payoutTestCaseList.add(new PayoutTest18());
+                case "Zero Corner" -> payoutTestCaseList.add(new PayoutTest19());
             }
         }
-        return payoutCases;
     }
 
-    public static int[] getTestCaseList(List<PayoutTestCase> payoutTestCaseList) {
-        Set<Integer> uniqueTestCases = payoutTestCaseList.stream().map(PayoutTestCase::getTestCase)
-                .filter(testCase -> testCase != 0).collect(Collectors.toSet());
-        return uniqueTestCases.stream().mapToInt(Integer::intValue).toArray();
+    public static boolean isCompleted() {
+        return payoutTestCaseList.isEmpty();
     }
 
-    public static void initializeBeforeBetting() {
-        isRedPlaced = isBlackPlaced = isEvenPlaced = isOddPlaced = isLowPlaced = isHighPlaced = is1stDozenPlaced =
-                is2ndDozenPlaced = is3rdDozenPlaced = is1stColumnPlaced = is2ndColumnPlaced = is3rdColumnPlaced = isStraightUpPlaced =
-                isSplitPlaced = isStreetPlaced = isCornerPlaced = isSixLinePlaced = isZeroSectionPlaced = isZeroCornerPlaced = false;
+    public static void setBeforeBetting() {
+        if (payoutTestCaseList.isEmpty()) return;
+
+        ignoredPayoutTestCase = new ArrayList<>();
+        isRedPlaced = isBlackPlaced = isEvenPlaced = isOddPlaced = isLowPlaced = isHighPlaced = is1stDozenPlaced = is2ndDozenPlaced =
+                is3rdDozenPlaced = is1stColumnPlaced = is2ndColumnPlaced = is3rdColumnPlaced = isStraightUpPlaced = isSplitPlaced =
+                        isStreetPlaced = isCornerPlaced = isSixLinePlaced = isZeroSectionPlaced = isZeroCornerPlaced = false;
         balanceBeforeBetting = balanceAfterBetting = balanceAfterDealing = totalWinBet = totalWinResult = totalBet = 0.0;
         balanceBeforeBetting = GetHandler.getDouble(DealerTable.Label.Balance);
         System.out.println("    Balance Before Betting: " + balanceBeforeBetting);
     }
 
-    public static void initializeAfterBetting() {
+    public static void setBettingOption() {
+        if (payoutTestCaseList.isEmpty()) return;
+
+        processPayoutTestCases(PayoutTestCase::placeBettingOption);
+        EventHandler.click(DealerTable.Button.Confirm, 1);
+    }
+
+    public static void setAfterBetting() {
+        if (payoutTestCaseList.isEmpty()) return;
+
+        processPayoutTestCases(PayoutTestCase::checkBettingChip);
         tableInfo = GetHandler.getText(DealerTable.Label.TableInfo);
         totalBet = GetHandler.getDouble(DealerTable.Label.TotalBet);
         balanceAfterBetting = GetHandler.getDouble(DealerTable.Label.Balance);
         System.out.println("    Balance After Betting: " + balanceAfterBetting);
     }
 
-    public static void initializeAfterDealing(String[] roundResult) {
+    public static void setAfterDealing(String[] roundResult) {
+        if (payoutTestCaseList.isEmpty()) return;
+
         balanceAfterDealing = getUpdatedBalance();
         System.out.println("    Balance After Dealing: " + balanceAfterDealing);
+        ScreenshotFeature.capture("balance", tableInfo + " " + Helper.toString(roundResult));
+        processPayoutTestCases(payoutTestCase -> payoutTestCase.computeWinResult(roundResult));
         System.out.println("    Total Win Bet: " + totalWinBet);
         System.out.println("    Total Win Result: " + totalWinResult);
-        ScreenshotFeature.capture("balance", tableInfo + " " + Helper.toString(roundResult));
+        processPayoutTestCases(payoutTestCase -> payoutTestCase.saveTestCase(roundResult, payoutTestCaseList));
+
+        if (!payoutTestCaseList.isEmpty()) {
+            System.out.println("    Payout Test Cases Left: " + Helper.toString(getTestCaseList(payoutTestCaseList)));
+            if (!ignoredPayoutTestCase.isEmpty())
+                System.out.println("    Ignored Result And Statistics Test Cases: " + Helper.toString(getTestCaseList(ignoredPayoutTestCase)));
+        }
+    }
+
+    private static int[] getTestCaseList(List<PayoutTestCase> payoutTestCaseList) {
+        Set<Integer> uniqueTestCases = payoutTestCaseList.stream().map(PayoutTestCase::getTestCase)
+                .filter(testCase -> testCase != 0).collect(Collectors.toSet());
+        return uniqueTestCases.stream().mapToInt(Integer::intValue).toArray();
+    }
+
+    private static void processPayoutTestCases(Consumer<PayoutTestCase> action) {
+        for (PayoutTestCase payoutTestCase : new ArrayList<>(payoutTestCaseList)) {
+            try {
+                if (!ignoredPayoutTestCase.contains(payoutTestCase)) action.accept(payoutTestCase);
+            } catch (Exception e) {
+                ignoredPayoutTestCase.add(payoutTestCase);
+                Printer.printError("Test Case " + payoutTestCase.getTestCase() + ": " + e.getMessage());
+            }
+        }
     }
 
     protected static void addWin(String bettingOption, double chipValue, double payoutOdds) {
