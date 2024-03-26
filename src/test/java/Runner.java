@@ -54,12 +54,12 @@ import org.junit.runner.RunWith;
                 //tags = "@UserInterface"
 
                 // * LONG RUN
-                tags= "@Payout or @ResultAndStatistics"
+                //tags= "@Payout"
                 //tags= "@Gameplay"
                 //tags= "@Functionality"
 
                 // * FULL RUN
-                //tags = "@Payout or @BetInformation or @Gameplay or @Functionality or @UserInterface"
+                tags = "@Payout or @BetInformation or @Gameplay or @ResultAndStatistics or @UserInterface"
 
                 // * RE-RUN
                 //tags = "@UserInterfaceTest1"
