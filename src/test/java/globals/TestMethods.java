@@ -4,6 +4,7 @@ import pages.DealerTable;
 import utilities.enums.HandleCollection;
 import utilities.handlers.GetHandler;
 import utilities.handlers.WaitHandler;
+import utilities.objects.Helper;
 import utilities.objects.Locator;
 
 public class TestMethods {
@@ -55,6 +56,25 @@ public class TestMethods {
             case "500" -> 500;
             default -> GetHandler.getInt(chip);
         };
+    }
+
+    /***************************************************************************************************************
+     * The 'getTableName' method is used to retrieve the table name within the dealer table.
+     ***************************************************************************************************************/
+
+    public static String getTableName() {
+        String table = GetHandler.getText(DealerTable.Label.TableInfo).split("#")[0];
+        String initial = Helper.getFirstChar(table);
+        return "Roulette " + initial;
+    }
+
+    /***************************************************************************************************************
+     * The 'getRoundId' method is used to retrieve the round ID within the dealer table.
+     ***************************************************************************************************************/
+
+    public static String getRoundId() {
+        String tableInfo = GetHandler.getText(DealerTable.Label.TableInfo).split("#")[1];
+        return "#" + tableInfo;
     }
 
 }

@@ -73,7 +73,7 @@ public class GetHandler extends AutomationSetup {
                     wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator.getPath()));
                     List<WebElement> elements = driver.findElements(locator.getPath());
                     WebElement element = elements.get(new Random().nextInt(elements.size()));
-                    jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", element, element.getLocation().getY());
+                    jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
                     return element;
                 } catch (Exception e) {
                     String name = locator.getName();
@@ -121,7 +121,7 @@ public class GetHandler extends AutomationSetup {
                 wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator.getPath()));
                 List<WebElement> elements = driver.findElements(locator.getPath());
                 for (WebElement element : elements)
-                    jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", element, element.getLocation().getY());
+                    jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
                 return elements;
             default:
                 throw new IllegalArgumentException("Invalid HandleCollection Value");
@@ -161,7 +161,7 @@ public class GetHandler extends AutomationSetup {
                 try {
                     wait.until(ExpectedConditions.presenceOfElementLocated(locator.getPath()));
                     WebElement element = driver.findElement(locator.getPath());
-                    jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", element, element.getLocation().getY());
+                    jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
                     return element.getAttribute(attribute);
                 } catch (Exception e) {
                     String name = locator.getName();
@@ -207,7 +207,7 @@ public class GetHandler extends AutomationSetup {
                 try {
                     wait.until(ExpectedConditions.presenceOfElementLocated(locator.getPath()));
                     WebElement element = driver.findElement(locator.getPath());
-                    jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", element, element.getLocation().getY());
+                    jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
                     return element.getText();
                 } catch (Exception e) {
                     String name = locator.getName();
@@ -260,7 +260,7 @@ public class GetHandler extends AutomationSetup {
                     List<WebElement> elements = driver.findElements(locator.getPath());
                     String[] textArray = new String[elements.size()];
                     for (int i = 0; i < elements.size(); i++) {
-                        jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", elements.get(i), elements.get(i).getLocation().getY());
+                        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", elements.get(i));
                         textArray[i] = elements.get(i).getText();
                     }
                     return textArray;
@@ -310,7 +310,7 @@ public class GetHandler extends AutomationSetup {
                 try {
                     wait.until(ExpectedConditions.presenceOfElementLocated(locator.getPath()));
                     WebElement element = driver.findElement(locator.getPath());
-                    jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", element, element.getLocation().getY());
+                    jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
                     return Double.parseDouble(element.getText().replaceAll("[^0-9.-]+", ""));
                 } catch (Exception e) {
                     String name = locator.getName();
@@ -365,7 +365,7 @@ public class GetHandler extends AutomationSetup {
                     List<WebElement> elements = driver.findElements(locator.getPath());
                     double[] doubleArray = new double[elements.size()];
                     for (int i = 0; i < elements.size(); i++) {
-                        jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", elements.get(i), elements.get(i).getLocation().getY());
+                        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", elements.get(i));
                         doubleArray[i] = Double.parseDouble(elements.get(i).getText().replaceAll("[^0-9.-]+", ""));
                     }
                     return doubleArray;
@@ -415,7 +415,7 @@ public class GetHandler extends AutomationSetup {
                 try {
                     wait.until(ExpectedConditions.presenceOfElementLocated(locator.getPath()));
                     WebElement element = driver.findElement(locator.getPath());
-                    jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", element, element.getLocation().getY());
+                    jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
                     return Integer.parseInt(element.getText().replaceAll("[^0-9.-]+", ""));
                 } catch (Exception e) {
                     String name = locator.getName();
@@ -470,7 +470,7 @@ public class GetHandler extends AutomationSetup {
                     List<WebElement> elements = driver.findElements(locator.getPath());
                     int[] intArray = new int[elements.size()];
                     for (int i = 0; i < elements.size(); i++) {
-                        jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", elements.get(i), elements.get(i).getLocation().getY());
+                        jsExecutor.executeScript("arguments[0].scrollIntoView(true);", elements.get(i));
                         intArray[i] = Integer.parseInt(elements.get(i).getText().replaceAll("[^0-9.-]+", ""));
                     }
                     return intArray;

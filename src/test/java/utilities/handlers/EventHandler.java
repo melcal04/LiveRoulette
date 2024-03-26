@@ -92,7 +92,7 @@ public class EventHandler extends AutomationSetup {
             case WithScroll:
                 try {
                     WebElement element = driver.findElement(locator.getPath());
-                    jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", element, element.getLocation().getY());
+                    jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
                     wait.until(ExpectedConditions.elementToBeClickable(element)).click();
                 } catch (Exception e) {
                     String name = locator.getName();
@@ -164,7 +164,7 @@ public class EventHandler extends AutomationSetup {
                 break;
             case WithScroll:
                 try {
-                    jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", element, element.getLocation().getY());
+                    jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
                     wait.until(ExpectedConditions.elementToBeClickable(element)).click();
                 } catch (Exception e) {
                     Printer.printError("Failed to click \"" + element.getText() + "\" web element with scroll");
@@ -205,7 +205,7 @@ public class EventHandler extends AutomationSetup {
     public static void scroll(Locator locator) {
         try {
             WebElement element = driver.findElement(locator.getPath());
-            jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", element, element.getLocation().getY());
+            jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
         } catch (Exception e) {
             String name = locator.getName();
             String type = locator.getType();
@@ -222,7 +222,7 @@ public class EventHandler extends AutomationSetup {
     @SuppressWarnings("unused")
     public static void scroll(WebElement element) {
         try {
-            jsExecutor.executeScript("arguments[0].scrollTop = arguments[1];", element, element.getLocation().getY());
+            jsExecutor.executeScript("arguments[0].scrollIntoView(true);", element);
         } catch (Exception e) {
             Printer.printError("Failed to scroll \"" + element.getText() + "\" web element");
             throw e;

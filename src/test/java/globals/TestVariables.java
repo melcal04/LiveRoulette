@@ -1,5 +1,8 @@
 package globals;
 
+import pages.DealerTable;
+import utilities.objects.Locator;
+
 public class TestVariables {
 
     /*********************************************************************************************************************
@@ -130,5 +133,15 @@ public class TestVariables {
     };
     public static final int[][][] ZERO_SECTION_LIST = {{{1, 1}, {0, 1, 2, 3}}};
     public static final int[][][] ZERO_CORNER_LIST = {{{2, 1}, {0, 1, 2}}, {{3, 1}, {0, 2, 3}}};
+
+    /*********************************************************************************************************************
+     ** These constants and variables are used to find collections of locators in the Live Roulette Mobile Revamp.
+     *********************************************************************************************************************/
+
+    public static Locator[] ACTION_BUTTONS = {
+            DealerTable.Button.Undo,
+            DealerTable.Button.Double,
+            DealerTable.Button.Confirm
+    };
 
 }

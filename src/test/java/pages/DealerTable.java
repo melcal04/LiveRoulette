@@ -27,8 +27,8 @@ public class DealerTable {
                 "Dealer Table Page",
                 "//div[contains(@class,'num_bet_option') and contains(@class, 'win')]"
         );
-        public static Locator BetResult = new Locator(
-                "Bet Result",
+        public static Locator RoundResult = new Locator(
+                "Round Result",
                 "Container",
                 "Dealer Table Page",
                 "//div[@class='bet_result_roulette']"
@@ -130,12 +130,6 @@ public class DealerTable {
                 "Dealer Table Page",
                 "//div[@class='chip_set']//li[not(contains(@data-gtm, 'Btn_ClickChipCustomize'))]"
         );
-        public static Locator ActionButtons = new Locator(
-                "List of Action Buttons",
-                "Button",
-                "Dealer Table Page",
-                "//div[@class='pattern']//button"
-        );
         public static Locator PopUpConfirm = new Locator(
                 "Pop Up Confirm",
                 "Button",
@@ -203,20 +197,20 @@ public class DealerTable {
                 "Dealer Table Page",
                 "//div[contains(@class, 'balance_btn')]//p"
         );
-        public static Locator BetResultNumber = new Locator(
-                "Bet Result Number",
+        public static Locator RoundResultNumber = new Locator(
+                "Round Result Number",
                 "Label",
                 "Dealer Table Page",
                 "//div[@class='bet_result_roulette']//li[3]"
         );
-        public static Locator BetResultLeftNumber = new Locator(
-                "Bet Result Left Number",
+        public static Locator RoundResultLeftNumber = new Locator(
+                "Round Result Left Number",
                 "Label",
                 "Dealer Table Page",
                 "//div[@class='bet_result_roulette']//li[2]"
         );
-        public static Locator BetResultRightNumber = new Locator(
-                "Bet Result Right Number",
+        public static Locator RoundResultRightNumber = new Locator(
+                "Round Result Right Number",
                 "Label",
                 "Dealer Table Page",
                 "//div[@class='bet_result_roulette']//li[4]"
@@ -251,7 +245,7 @@ public class DealerTable {
                 "Dealer Table Page",
                 "//p[@class='you_won_amount_text']"
         );
-        public static Locator WonText = new Locator(
+        public static Locator YouWon = new Locator(
                 "You Won",
                 "Label",
                 "Dealer Table Page",

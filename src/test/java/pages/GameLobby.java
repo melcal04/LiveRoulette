@@ -115,8 +115,8 @@ public class GameLobby {
                 "Game Lobby Page",
                 "//div[@class='dealer station']//div[@class='line_statistics']//div[4]//span[3]"
         );
-        public static Locator FirstNumberInRoadMap = new Locator(
-                "First Number In RoadMap",
+        public static Locator FirstResultInRoadMap = new Locator(
+                "First Result In Road Map",
                 "Label",
                 "Game Lobby Page",
                 "//div[@class='dealer station'][1]//ul[1]//li[1]"

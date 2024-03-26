@@ -128,7 +128,7 @@ public class MyBets {
     public static class Method {
         public static Locator getDetailsButton(String roundId) {
             return new Locator(
-                    "Round ID #" + roundId + " Details",
+                    "Round ID " + roundId + " Details",
                     "Button",
                     "My Bets Page",
                     "//span[contains(normalize-space(), '" + roundId + "')]/ancestor::div[3]" +

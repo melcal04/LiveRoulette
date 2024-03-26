@@ -14,6 +14,7 @@ public class VerificationHandler {
     ? - public static void verifyIfNotContained(Locator locator, String target, String message)
     ? - public static void verifyIfContained(Locator locator, String attribute, String target, String message)
     ? - public static void verifyIfNotContained(Locator locator, String attribute, String target, String message)
+    ? - public static void verifyIfPlacedBet(Locator option, Locator chip)
     ? **********************************************************************************************************************/
 
     /*********************************************************************************************************************
@@ -98,6 +99,18 @@ public class VerificationHandler {
         CustomAssert.assertFalse(GetHandler.getAttribute(locator, attribute).contains(target),
                 "** \"" + name + "\" " + type + " on " + page + " is " + message,
                 "** \"" + name + "\" " + type + " on " + page + " is Not " + message);
+    }
+
+    /*********************************************************************************************************************
+     ** The 'verifyIfPlacedBet' method confirms the betting chip after clicking on the betting options
+     *********************************************************************************************************************/
+
+    @SuppressWarnings("unused")
+    public static void verifyIfPlacedBet(Locator option, Locator chip) {
+        EventHandler.click(option);
+        CustomAssert.assertTrue(ConditionHandler.isDisplayed(chip, 5),
+                "** " + chip.getName() + " is Placed on " + option.getName(),
+                "** " + chip.getName() + " is Not Placed on " + option.getName());
     }
 
 }

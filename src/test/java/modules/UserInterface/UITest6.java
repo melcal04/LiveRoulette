@@ -23,8 +23,8 @@ public class UITest6 extends UserInterface {
         for (int column : TestVariables.COLUMN_LIST)
             VerificationHandler.verifyIfDisplayed(BettingPanel.Option.getColumn(column), 5);
 
-        for (int i = 0; i < 37; i++)
-            VerificationHandler.verifyIfDisplayed(BettingPanel.Option.getStraightUp(i), 5);
+        for (int number = 0; number < 37; number++)
+            VerificationHandler.verifyIfDisplayed(BettingPanel.Option.getStraightUp(number), 5);
 
         for (int[][] split : TestVariables.SPLIT_LIST)
             VerificationHandler.verifyIfDisplayed(BettingPanel.Option.getSplit(split), 5);
